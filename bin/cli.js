@@ -271,7 +271,11 @@ program
   .action(async (options) => {
     try {
       if (options.toAicf) {
-        // Convert .ai/ to .aicf/ (AICF 2.0)
+        // First ensure .ai/ directory has all essential files
+        console.log(chalk.cyan('🔍 Checking .ai/ directory completeness...\n'));
+        await migrateProject({ force: true, silent: true });
+        
+        // Then convert .ai/ to .aicf/ (AICF 3.0)
         const fs = require('fs-extra');
         const path = require('path');
         

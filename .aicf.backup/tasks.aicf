@@ -1,0 +1,55 @@
+@TASKS
+@SCHEMA
+T#|PRIORITY|EFFORT|STATUS|TASK|DEPENDENCIES|ASSIGNED|CREATED|COMPLETED
+
+@DATA
+1|H|M|TODO|Test v0.10.0 and publish to npm|None||2025-10-02T09:27:23Z|
+2|H|M|TODO|Test v0.9.0 `chat-finish` command in real projects|None||2025-10-02T09:27:23Z|
+3|H|M|TODO|Gather user feedback on `chat-finish` workflow|None||2025-10-02T09:27:23Z|
+4|H|M|TODO|Monitor npm downloads and GitHub stars|None||2025-10-02T09:27:23Z|
+5|H|L|TODO|Create video tutorial for `chat-finish` command|None||2025-10-02T09:27:23Z|
+6|M|S|TODO|Add more AI models as they're released|None||2025-10-02T09:27:23Z|
+7|M|S|TODO|Add validation for config values|None||2025-10-02T09:27:23Z|
+8|M|S|TODO|Add `config reset` command to restore defaults|None||2025-10-02T09:27:23Z|
+9|M|M|TODO|Improve `chat-finish` auto-summary intelligence|None||2025-10-02T09:27:23Z|
+10|L|S|TODO|Additional templates (Rust, API, Mobile)|None||2025-10-02T09:27:23Z|
+11|L|S|TODO|VS Code extension (optional)|None||2025-10-02T09:27:23Z|
+12|L|S|TODO|Advanced search with filters|None||2025-10-02T09:27:23Z|
+13|L|S|TODO|Team collaboration features|None||2025-10-02T09:27:23Z|
+14|L|S|TODO|Analytics dashboard|None||2025-10-02T09:27:23Z|
+15|L|M|TODO|AI-powered summarization with API integration|None||2025-10-02T09:27:23Z|
+16|L|M|TODO|Make "popular models" list configurable|None||2025-10-02T09:27:23Z|
+17|L|S|TODO|Add `npx aic doctor` command for health checks|None||2025-10-02T09:27:23Z|
+18|L|S|TODO|Add `npx aic diff` to compare knowledge base versions|None||2025-10-02T09:27:23Z|
+19|L|S|TODO|Add support for custom AI models (local LLMs)|None||2025-10-02T09:27:23Z|
+20|L|S|TODO|Add `npx aic backup` and `npx aic restore` commands|None||2025-10-02T09:27:23Z|
+21|L|M|TODO|Integration with more AI tools (Windsurf, Zed, etc.)|None||2025-10-02T09:27:23Z|
+22|L|S|TODO|Add telemetry (opt-in) to understand usage patterns|None||2025-10-02T09:27:23Z|
+23|L|L|TODO|Create video tutorials for common workflows|None||2025-10-02T09:27:23Z|
+24|L|S|TODO|Add `npx aic migrate` for upgrading old knowledge bases|None||2025-10-02T09:27:23Z|
+25|M|M|DONE|v0.11.0 - Verify Before You Advise - 2025-10-01 (Chat #12)|None||2025-10-02T09:27:23Z|2025-10-02T09:27:23Z
+26|M|M|DONE|Prevents AI from suggesting work that's already completed|None||2025-10-02T09:27:23Z|
+27|M|S|DONE|Adds verification checks before giving recommendations|None||2025-10-02T09:27:23Z|
+28|M|L|DONE|v0.10.2 - Replace log command recommendations with chat-finish - 2025-10-01 (Chat #11)|None||2025-10-02T09:27:23Z|2025-10-02T09:27:23Z
+29|M|L|DONE|Updated all documentation to recommend chat-finish over manual log|None||2025-10-02T09:27:23Z|
+30|M|L|DONE|v0.10.1 - Perfect formatting for all .ai/ files - 2025-10-01 (Chat #10)|None||2025-10-02T09:27:23Z|2025-10-02T09:27:23Z
+31|M|S|DONE|Fixed chat-finish to always update next-steps.md when decisions exist|None||2025-10-02T09:27:23Z|
+32|M|L|DONE|v0.10.0 - 100% automatic chat-finish with git analysis - 2025-10-01 (Chat #7)|None||2025-10-02T09:27:23Z|2025-10-02T09:27:23Z
+33|M|M|DONE|Complete rewrite of chat-finish.js (274 lines)|None||2025-10-02T09:27:23Z|
+34|M|M|DONE|Removed manual questions, made fully automatic|None||2025-10-02T09:27:23Z|
+35|M|L|DONE|`chat-finish` command - THE KEY FEATURE! - 2025-10-01 (v0.9.0)|None||2025-10-02T09:27:23Z|2025-10-02T09:27:23Z
+36|M|M|DONE|Automatically update all `.ai/` files at end of chat|None||2025-10-02T09:27:23Z|
+37|M|M|DONE|Git diff analysis to detect changes|None||2025-10-02T09:27:23Z|
+38|M|M|DONE|4 smart questions (goal, decisions, issues, next steps)|None||2025-10-02T09:27:23Z|
+39|M|M|DONE|Auto-generate entries for all `.ai/` files|None||2025-10-02T09:27:23Z|
+40|M|M|DONE|Transforms tool from manual → automatic!|None||2025-10-02T09:27:23Z|
+41|M|L|DONE|Configuration system with `config` command - 2025-10-01 (v0.7.0)|None||2025-10-02T09:27:23Z|2025-10-02T09:27:23Z
+42|M|L|DONE|Simplified token report (4 models default) - 2025-10-01 (v0.7.0)|None||2025-10-02T09:27:23Z|2025-10-02T09:27:23Z
+43|M|M|DONE|Preferred model highlighting with ⭐ - 2025-10-01 (v0.7.0)|None||2025-10-02T09:27:23Z|2025-10-02T09:27:23Z
+44|M|S|DONE|Fix conversation entry counting for date-first format - 2025-10-01 (v0.6.5)|None||2025-10-02T09:27:23Z|2025-10-02T09:27:23Z
+45|M|S|DONE|Add 16 current AI models (GPT-5, Claude 4.5, etc.) - 2025-10-01 (v0.6.4)|None||2025-10-02T09:27:23Z|2025-10-02T09:27:23Z
+46|M|M|DONE|Context-aware token recommendations - 2025-10-01 (v0.6.4)|None||2025-10-02T09:27:23Z|2025-10-02T09:27:23Z
+47|M|L|DONE|Comprehensive documentation (COMMANDS.md + CONFIGURATION.md) - 2025-10-01 (v0.8.0)|None||2025-10-02T09:27:23Z|2025-10-02T09:27:23Z
+48|M|L|DONE|Updated mermaid diagrams with chat-finish workflow - 2025-10-01 (v0.8.1)|None||2025-10-02T09:27:23Z|2025-10-02T09:27:23Z
+49|M|M|DONE|GitHub release for v0.8.0 - 2025-10-01|None||2025-10-02T09:27:23Z|2025-10-02T09:27:23Z
+

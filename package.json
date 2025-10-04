@@ -1,11 +1,11 @@
 {
   "name": "create-ai-chat-context",
-  "version": "1.0.2",
-  "description": "Initialize AI memory system for projects - Creates .ai/ knowledge base to preserve context across chat sessions",
+  "version": "1.0.3",
+  "description": "Real-time AI memory preservation - Every response triggers automatic context saving with zero API costs. No more lost conversations!",
   "main": "src/index.js",
   "bin": {
-    "create-ai-chat-context": "./bin/cli.js",
-    "aic": "./bin/cli.js"
+    "create-ai-chat-context": "bin/cli.js",
+    "aic": "bin/cli.js"
   },
   "scripts": {
     "test": "echo \"No tests yet\" && exit 0",
@@ -41,7 +41,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Vaeshkar/create-ai-chat-context.git"
+    "url": "git+https://github.com/Vaeshkar/create-ai-chat-context.git"
   },
   "bugs": {
     "url": "https://github.com/Vaeshkar/create-ai-chat-context/issues"

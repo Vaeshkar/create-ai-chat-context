@@ -1,12 +1,18 @@
 @DECISIONS
 @SCHEMA
-D#|TIMESTAMP|TITLE|DECISION|RATIONALE|IMPACT|STATUS
+D#|TIMESTAMP|TITLE|DECISION|RATIONALE|IMPACT|STATUS|CONTEXT_REFS|CONFIDENCE|IMPACT_SCORE
 
 @DATA
-1|20251001T120000Z|Per-Project Configuration Storage|Store configuration in `.ai/config.json` (per-project) instead of global config in `~/.aic/config.js|||IMPLEMENTED
-2|20251001T120000Z|Simplified Token Report (Show 4 Models by Default)|Show only 4 AI models by default in token reports (preferred model + top 3 popular), with `--all` fl|||IMPLEMENTED
-3|20251001T120000Z|Star (⭐) for Preferred Model|Mark preferred model with ⭐ star prefix in token reports.|||IMPLEMENTED
-4|20251001T120000Z|Conversation Entry Counting Regex|Changed regex from `/^## Chat #\d+/gm` to `/^##.*Chat\s*#?\d+/gim` for counting conversation entries|||IMPLEMENTED
-5|20251001T120000Z|Comprehensive Documentation Files|Create separate COMMANDS.md and CONFIGURATION.md files instead of putting everything in README.|||IMPLEMENTED
-6|[Date]T120000Z|[Decision Name]|[What you decided]|[Why]|``` **Last Updated:** 2025-10-01|ACTIVE
+1|20251003T120000Z|v1.0.0 Release Strategy: Dual-Format Coexistence (.ai + .aic|Released v1.0.0 with simplified 7-file .ai approach, then immediately restored .aicf files for continued parallel develo|**"JSON had to coexist with XML before gaining acceptance"** - User insight on format evolution. **v1.0.0 Simplification||ACTIVE||9|6
+2|20251003T120000Z|v1.0.0 Release: Abandon Automated Compression, Adopt Manual |Abandon the automated compression system (multi-agent architecture with Analysis/Quality/Format agents) and adopt a manu|**Automated compression failed quality tests:** **Manual approach is superior:** **Workflow:** 1. User runs `aic chat-fi|**Code removed:** **Dependencies removed:** **Package changes:** **Documentation added:**|ACTIVE||9|8
+3|20251002T120000Z|AICF 3.0: AI-Native Memory Format|Design AICF 3.0 as an AI-native memory format optimized for AI-to-AI communication, not human readability. Focus on 1:1 |**The fundamental problem with AICF 2.0:** **The paradigm shift:** **What AI needs to persist memory:** 1. **Conversatio|**For AI assistants:** **For developers:** **For the project:**|ACTIVE||9|8
+4|20251002T120000Z|Every-50-Messages Checkpoint Strategy|Automatically save conversation checkpoint every 50 messages to `.aicf/conversations.aicf` using structured detail forma|**The 5-16 hour session problem:** **Why every 50 messages:** **Why structured detail format:**|**For long sessions:** **For implementation:**|ACTIVE||9|6
+5|20251002T120000Z|Structured Detail Format (@FLOW + @DETAILS + @INSIGHTS + @DE|Use sectioned format with @FLOW (conversation flow), @DETAILS (expanded context), @INSIGHTS (key realizations), @DECISIO|**Why sectioned format:** **Why these specific sections:** **Why pipe-delimited:**|**Example checkpoint:** ``` @CONVERSATION:C5-CP1 timestamp_start=20251002T201500Z timestamp_end=2025|ACTIVE||9|8
+6|20251002T120000Z|Reject AICF 2.0 Fixed Field Lengths|Abandon AICF 2.0 format with fixed field lengths (40-80 characters per field).|**Real-world testing revealed fatal flaw:** **Root cause:** **Token economics:**||ACTIVE||9|6
+7|20251001T120000Z|Per-Project Configuration Storage|Store configuration in `.ai/config.json` (per-project) instead of global config in `~/.aic/config.json`.|||IMPLEMENTED||9|6
+8|20251001T120000Z|Simplified Token Report (Show 4 Models by Default)|Show only 4 AI models by default in token reports (preferred model + top 3 popular), with `--all` flag to show all 16.|||IMPLEMENTED||9|6
+9|20251001T120000Z|Star (⭐) for Preferred Model|Mark preferred model with ⭐ star prefix in token reports.|||IMPLEMENTED||9|6
+10|20251001T120000Z|Conversation Entry Counting Regex|Changed regex from `/^## Chat #\d+/gm` to `/^##.*Chat\s*#?\d+/gim` for counting conversation entries.|||IMPLEMENTED||9|6
+11|20251001T120000Z|Comprehensive Documentation Files|Create separate COMMANDS.md and CONFIGURATION.md files instead of putting everything in README.|||IMPLEMENTED||9|6
+12|[Date]T120000Z|[Decision Name]|[What you decided]|[Why]|``` **Last Updated:** 2025-10-01|ACTIVE||9|6
 

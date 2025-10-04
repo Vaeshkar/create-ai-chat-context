@@ -16,16 +16,20 @@ async function migrateProject(options = {}) {
   const aiDir = path.join(cwd, ".ai");
   const templatesDir = path.join(__dirname, "../templates");
 
-  console.log(chalk.bold("\n🔄 Migrating AI Memory System\n"));
+  if (!options.silent) {
+    console.log(chalk.bold("\n🔄 Migrating AI Memory System\n"));
+  }
 
   // Check if .ai/ exists
   if (!fs.existsSync(aiDir)) {
-    console.log(chalk.yellow("⚠️  No .ai/ directory found!"));
-    console.log(chalk.gray("   Run 'aic init' to create a new project\n"));
+    if (!options.silent) {
+      console.log(chalk.yellow("⚠️  No .ai/ directory found!"));
+      console.log(chalk.gray("   Run 'aic init' to create a new project\n"));
+    }
     process.exit(1);
   }
 
-  const spinner = ora("Analyzing current setup...").start();
+  const spinner = options.silent ? null : ora("Analyzing current setup...").start();
 
   // Check which files are missing
   const aiTemplateFiles = [
@@ -46,25 +50,31 @@ async function migrateProject(options = {}) {
     fs.existsSync(path.join(aiDir, file))
   );
 
-  spinner.succeed(
-    `Found ${existingAiFiles.length}/${aiTemplateFiles.length} .ai/ files`
-  );
+  if (spinner) {
+    spinner.succeed(
+      `Found ${existingAiFiles.length}/${aiTemplateFiles.length} .ai/ files`
+    );
+  }
 
   // Show what will be added
-  console.log();
-  if (missingAiFiles.length > 0) {
-    console.log(chalk.bold("📝 Will add to .ai/:"));
-    missingAiFiles.forEach((file) => {
-      console.log(chalk.gray(`   + ${file}`));
-    });
+  if (!options.silent) {
     console.log();
-  } else {
-    console.log(chalk.green("✅ Your project is already up to date!\n"));
-    return;
+    if (missingAiFiles.length > 0) {
+      console.log(chalk.bold("📝 Will add to .ai/:"));
+      missingAiFiles.forEach((file) => {
+        console.log(chalk.gray(`   + ${file}`));
+      });
+      console.log();
+    } else {
+      console.log(chalk.green("✅ Your project is already up to date!\n"));
+      return;
+    }
+  } else if (missingAiFiles.length === 0) {
+    return; // Silent mode, no files needed
   }
 
   // Confirm migration
-  if (!options.force) {
+  if (!options.force && !options.silent) {
     console.log(
       chalk.yellow(
         "⚠️  This will add new files to your project (existing files won't be modified)"
@@ -78,7 +88,9 @@ async function migrateProject(options = {}) {
 
   // Add missing .ai/ files
   if (missingAiFiles.length > 0) {
-    spinner.start("Adding missing .ai/ files...");
+    if (spinner) {
+      spinner.start("Adding missing .ai/ files...");
+    }
 
     for (const file of missingAiFiles) {
       const src = path.join(templatesDir, "ai", file);
@@ -87,11 +99,15 @@ async function migrateProject(options = {}) {
       if (await fs.pathExists(src)) {
         await fs.copy(src, dest);
       } else {
-        spinner.warn(`Template not found: ${file}`);
+        if (spinner) {
+          spinner.warn(`Template not found: ${file}`);
+        }
       }
     }
 
-    spinner.succeed(`Added ${missingAiFiles.length} file(s) to .ai/`);
+    if (spinner) {
+      spinner.succeed(`Added ${missingAiFiles.length} file(s) to .ai/`);
+    }
   }
 
   // Check for root files
@@ -101,7 +117,9 @@ async function migrateProject(options = {}) {
   );
 
   if (missingRootFiles.length > 0) {
-    spinner.start("Adding root instruction files...");
+    if (spinner) {
+      spinner.start("Adding root instruction files...");
+    }
 
     for (const file of missingRootFiles) {
       const src = path.join(templatesDir, file);
@@ -112,53 +130,57 @@ async function migrateProject(options = {}) {
       }
     }
 
-    spinner.succeed(`Added ${missingRootFiles.length} root file(s)`);
+    if (spinner) {
+      spinner.succeed(`Added ${missingRootFiles.length} root file(s)`);
+    }
   }
 
   // Success message
-  console.log();
-  console.log(chalk.bold.green("✅ Migration complete!\n"));
+  if (!options.silent) {
+    console.log();
+    console.log(chalk.bold.green("✅ Migration complete!\n"));
 
-  console.log(chalk.bold("📁 Your project now has:\n"));
-  console.log(
-    chalk.gray(
-      `   .ai/ - ${aiTemplateFiles.length} essential documentation files`
-    )
-  );
-  console.log();
+    console.log(chalk.bold("📁 Your project now has:\n"));
+    console.log(
+      chalk.gray(
+        `   .ai/ - ${aiTemplateFiles.length} essential documentation files`
+      )
+    );
+    console.log();
 
-  console.log(chalk.bold("📝 Next steps:\n"));
-  console.log("1. Review the new files:");
-  console.log(chalk.gray("   ls -la .ai/\n"));
+    console.log(chalk.bold("📝 Next steps:\n"));
+    console.log("1. Review the new files:");
+    console.log(chalk.gray("   ls -la .ai/\n"));
 
-  console.log("2. Customize new files for your project:");
-  if (missingAiFiles.includes("design-system.md")) {
-    console.log(chalk.gray("   vim .ai/design-system.md"));
+    console.log("2. Customize new files for your project:");
+    if (missingAiFiles.includes("design-system.md")) {
+      console.log(chalk.gray("   vim .ai/design-system.md"));
+    }
+    if (missingAiFiles.includes("code-style.md")) {
+      console.log(chalk.gray("   vim .ai/code-style.md"));
+    }
+    if (missingAiFiles.includes("project-overview.md")) {
+      console.log(chalk.gray("   vim .ai/project-overview.md"));
+    }
+    console.log();
+
+    console.log("3. At end of each AI session, ask AI:");
+    console.log(chalk.cyan('   "Can you update the .ai files?"\n'));
+
+    console.log("4. Commit the changes:");
+    console.log(
+      chalk.gray("   git add .ai/ .ai-instructions NEW_CHAT_PROMPT.md")
+    );
+    console.log(
+      chalk.gray('   git commit -m "Migrate to latest AI memory system"\n')
+    );
+
+    console.log(
+      chalk.bold.cyan(
+        "🎉 Your project is now using the latest AI memory system!\n"
+      )
+    );
   }
-  if (missingAiFiles.includes("code-style.md")) {
-    console.log(chalk.gray("   vim .ai/code-style.md"));
-  }
-  if (missingAiFiles.includes("project-overview.md")) {
-    console.log(chalk.gray("   vim .ai/project-overview.md"));
-  }
-  console.log();
-
-  console.log("3. At end of each AI session, ask AI:");
-  console.log(chalk.cyan('   "Can you update the .ai files?"\n'));
-
-  console.log("4. Commit the changes:");
-  console.log(
-    chalk.gray("   git add .ai/ .ai-instructions NEW_CHAT_PROMPT.md")
-  );
-  console.log(
-    chalk.gray('   git commit -m "Migrate to latest AI memory system"\n')
-  );
-
-  console.log(
-    chalk.bold.cyan(
-      "🎉 Your project is now using the latest AI memory system!\n"
-    )
-  );
 }
 
 module.exports = {

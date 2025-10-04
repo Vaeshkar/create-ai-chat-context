@@ -18,10 +18,7 @@ Complete reference for all `create-ai-chat-context` commands.
     - [search](#search)
     - [validate](#validate)
     - [check](#check)
-    - [archive](#archive)
-    - [summary](#summary)
     - [export](#export)
-    - [update](#update)
     - [cursor](#cursor)
     - [copilot](#copilot)
     - [claude-project](#claude-project)
@@ -30,6 +27,8 @@ Complete reference for all `create-ai-chat-context` commands.
     - [install-hooks](#install-hooks)
     - [checkpoint](#checkpoint)
     - [memory-decay](#memory-decay)
+    - [finish](#finish)
+    - [monitor](#monitor)
   - [Common Workflows](#common-workflows)
     - [Daily Development Workflow](#daily-development-workflow)
     - [Weekly Maintenance](#weekly-maintenance)
@@ -64,34 +63,27 @@ npx aic config                            # List configuration
 npx aic config set preferredModel "GPT-5" # Set preferred model
 npx aic config get preferredModel         # Get specific value
 
-# Token Management
+# Token Management (v1.0.3+ AUTOMATIC)
 npx aic tokens                            # Check token usage (top 4 models)
 npx aic tokens --all                      # Check token usage (all 16 models)
-npx aic archive --keep 10                 # Archive old conversations
-npx aic summary --keep 10                 # Summarize old conversations
+npx aic monitor                           # Monitor token usage with recommendations
+npx aic memory-decay                      # Apply intelligent memory decay (automatic)
 
 # AI Integration
 npx aic cursor                            # Generate Cursor AI rules
 npx aic copilot                           # Generate Copilot instructions
 npx aic claude-project                    # Generate Claude Projects export
 
+# Session Management (v1.0.3+ NEW!)
+npx aic finish                            # Finish session & prepare handoff
+npx aic finish --aicf                     # Finish session & migrate to AICF 3.0
+npx aic checkpoint --demo                 # Test checkpoint system
+npx aic monitor                           # Check token usage & recommendations
+
 # Maintenance
 npx aic export --format md                # Export knowledge base
-npx aic update                            # Update templates
 npx aic install-hooks                     # Install Git hooks
 npx aic check                             # Quick health check
-
-# 🤖 Logic Agent Checkpoint Orchestrator (NEW!)
-npx aic checkpoint --demo                 # Test with demo data
-npx aic checkpoint --file data.json       # Process checkpoint from JSON
-npx aic checkpoint --verbose --show-memory # Process with full logging
-npx aic memory-decay --verbose            # Apply intelligent memory decay
-npm run test:checkpoint                   # Run comprehensive validation
-
-# 🏁 Session Management (NEW!)
-npx aic finish --aicf                     # Finish session & migrate to AICF 3.0
-npx aic monitor                           # Check token usage
-npx aic monitor --check-finish            # Check if session should end
 ```
 
 ---
@@ -663,84 +655,6 @@ Last updated: 2 hours ago
 
 ---
 
-### archive
-
-Archive old conversation log entries to reduce token usage.
-
-**Syntax:**
-
-```bash
-npx aic archive [options]
-```
-
-**Options:**
-
-- `-k, --keep <number>` - Number of recent chats to keep detailed (default: 10)
-
-**Examples:**
-
-```bash
-# Keep last 10 chats detailed, archive older ones
-npx aic archive
-
-# Keep last 5 chats detailed
-npx aic archive --keep 5
-
-# Keep last 20 chats detailed
-npx aic archive --keep 20
-```
-
-**What it does:**
-
-- Moves old conversation entries to `.ai/archive/`
-- Keeps recent entries in main conversation log
-- Reduces token usage significantly
-
-**When to use:**
-
-- Token usage is high (>25,000 tokens)
-- Conversation log is very long
-- Want to keep recent context only
-
----
-
-### summary
-
-Summarize old conversation log entries to reduce token usage.
-
-**Syntax:**
-
-```bash
-npx aic summary [options]
-```
-
-**Options:**
-
-- `-k, --keep <number>` - Number of recent chats to keep detailed (default: 10)
-
-**Examples:**
-
-```bash
-# Keep last 10 chats detailed, summarize older ones
-npx aic summary
-
-# Keep last 5 chats detailed
-npx aic summary --keep 5
-```
-
-**What it does:**
-
-- Keeps recent entries detailed
-- Summarizes older entries (1-2 lines each)
-- Reduces token usage while preserving history
-
-**When to use:**
-
-- Want to keep all history but reduce tokens
-- Don't want to archive (lose detail)
-- Prefer summaries over full archive
-
----
 
 ### export
 
@@ -782,63 +696,6 @@ npx aic export --force
 - Share knowledge base with team
 - Backup before major changes
 - Generate documentation
-
----
-
-### update
-
-Update knowledge base with latest template improvements.
-
-**Syntax:**
-
-```bash
-npx aic update [options]
-```
-
-**Options:**
-
-- `-y, --yes` - Skip confirmation prompt
-
-**Examples:**
-
-```bash
-# Update with confirmation
-npx aic update
-
-# Update without confirmation
-npx aic update --yes
-npx aic update -y
-```
-
-**What it does:**
-
-- Updates template files to latest version
-- Preserves your custom content
-- Adds new features from updates
-
-**Output:**
-
-```
-🔄 Update Knowledge Base
-
-Current version: 0.6.0
-Latest version: 0.7.1
-
-Updates available:
-  • New configuration system
-  • Improved token reporting
-  • Enhanced documentation
-
-Continue? (y/n): y
-
-✅ Updated successfully!
-```
-
-**When to use:**
-
-- After upgrading the npm package
-- To get new features
-- Periodic maintenance
 
 ---
 
@@ -1230,9 +1087,11 @@ Recent changes:
 
 ---
 
-### checkpoint
+**🚀 v1.0.3 BREAKTHROUGH!** Real-time memory preservation - Every AI response triggers automatic checkpointing with zero API costs.
 
-**🚀 NEW!** Process conversation checkpoints using the revolutionary Logic Agent Orchestrator.
+> **Architecture Evolution:** v1.0.2 used 20k token batches, v1.0.3 processes every response in real-time. No more lost conversations!
+
+Process conversation checkpoints using the revolutionary Logic Agent Orchestrator.
 
 **Syntax:**
 
@@ -1331,11 +1190,11 @@ Checkpoint JSON must contain:
 }
 ```
 
-**When to use:**
-- Every 50 messages or when context window is full
-- End of long coding sessions (5+ hours)
-- Before starting new major features
-- When switching between different AI assistants
+**When to use (v1.0.3+):**
+- **Automatically after every AI response** (real-time memory preservation)
+- **Zero manual intervention required** (runs in background)
+- **Solves context loss from session resets** (Warp, ChatGPT, etc.)
+- **Preserves long-term working relationships** with AI assistants
 
 **Advantages over AI compression:**
 - **4,500x faster** (10ms vs 30-45 seconds)
@@ -1346,7 +1205,6 @@ Checkpoint JSON must contain:
 
 ---
 
-### memory-decay
 
 **🧹 NEW!** Apply intelligent memory decay strategy to optimize storage.
 
@@ -1417,7 +1275,6 @@ Applying memory decay...
 
 ---
 
-### finish
 
 **🏁 NEW!** Finish current AI session and prepare seamless handoff to new chat.
 
@@ -1515,7 +1372,6 @@ Please read the .ai-instructions file and .ai/ directory contents to get full co
 
 ---
 
-### monitor
 
 **📊 NEW!** Monitor token usage and get session management recommendations.
 
@@ -1595,17 +1451,18 @@ npx aic search "authentication"
 npx aic stats
 ```
 
-### Weekly Maintenance
+### Weekly Maintenance (v1.0.3+ AUTOMATIC)
 
 ```bash
 # Check quality
 npx aic validate
 
-# Check token usage
-npx aic tokens
+# Check token usage & get recommendations
+npx aic monitor
 
-# Archive if needed (>25k tokens)
-npx aic archive --keep 10
+# Memory decay now automatic with every-response checkpointing!
+# Manual decay only if needed:
+npx aic memory-decay
 
 # Export backup
 npx aic export --format json
@@ -1632,21 +1489,24 @@ npx aic install-hooks
 npx aic check
 ```
 
-### Token Management Workflow
+### Token Management Workflow (v1.0.3+ REVOLUTIONIZED)
 
 ```bash
-# Check current usage
-npx aic tokens
+# v1.0.3+: Automatic every-response memory preservation!
+# No more manual token management needed!
 
-# If >25k tokens, archive old conversations
-npx aic archive --keep 10
+# Check current usage with intelligent recommendations
+npx aic monitor
 
-# Or summarize instead
-npx aic summary --keep 10
+# Finish current session when recommended
+npx aic finish --aicf
 
-# Verify reduction
-npx aic tokens
+# Memory decay happens automatically with every AI response
+# Manual decay only if needed:
+npx aic memory-decay
 ```
+
+> **🚀 v1.0.3 Breakthrough:** Token management is now fully automatic! Every AI response triggers intelligent memory preservation and decay. No more lost conversations!
 
 ### 🤖 Checkpoint Orchestrator Workflow (NEW!)
 
@@ -1696,12 +1556,13 @@ npx aic init        # ✅ Short
 npx create-ai-chat-context init  # ❌ Long
 ```
 
-### Regular Maintenance
+### Regular Maintenance (v1.0.3+ MINIMAL)
 
-- Ask AI to update `.ai/` files after every chat session
-- Run `npx aic validate` weekly
-- Run `npx aic archive` when tokens >25,000
-- Run `npx aic update` after package updates
+- ✅ **AI memory is now automatic** - No manual file updates needed!
+- ✅ **Token management is automatic** - Memory decay happens with every response
+- Run `npx aic validate` weekly (quality check)
+- Run `npx aic monitor` monthly (usage overview)
+- Use `npx aic finish` when switching AI sessions
 
 ### Configuration
 

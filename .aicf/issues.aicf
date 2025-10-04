@@ -1,11 +1,12 @@
 @ISSUES
 @SCHEMA
-I#|TIMESTAMP|SEVERITY|TITLE|ISSUE|IMPACT|WORKAROUND|STATUS
+I#|TIMESTAMP|SEVERITY|TITLE|ISSUE|IMPACT|WORKAROUND|STATUS|CONTEXT_REFS|CONFIDENCE|IMPACT_SCORE
 
 @DATA
-1|20251001T120000Z|MEDIUM|Chat-Finish Command Formatting Issues|The `chat-finish` command (v0.9.0-v0.10.0) was creating duplicate and poorly formatted entries in `.|See description|Fixed through multiple iterations (chats #7-11):|RESOLVED
-2|20251001T120000Z|MEDIUM|Conversation Entry Counting Showed Zero|Stats command showed "0 conversation entries" for users with date-first format in conversation logs |See description|Changed regex to `/^##.*Chat\s*#?\d+/gim` to match "Chat #X" anywhere in the heading line. Now suppo|RESOLVED
-3|20251001T120000Z|LOW|Token Report Overwhelming with 16 Models|Showing all 16 AI models in token reports was overwhelming for most users who only care about 1-2 mo|See description||RESOLVED
-4|20251001T120000Z|MEDIUM|Documentation Too Sketchy|User feedback: "For the next version we need a full dokumentation. this is to sketchy."|See description|Created comprehensive documentation:|RESOLVED
-5|[Date]T120000Z|MEDIUM|[Issue Name]|[Description]|See description|[Fix or temporary solution]|OPEN
+1|20251001T120000Z|MEDIUM|Chat-Finish Command Formatting Issues|The `chat-finish` command (v0.9.0-v0.10.0) was creating duplicate and poorly formatted entries in `.ai/` files:|See description|Fixed through multiple iterations (chats #7-11):|RESOLVED||10|6
+2|20251001T120000Z|MEDIUM|Conversation Entry Counting Showed Zero|Stats command showed "0 conversation entries" for users with date-first format in conversation logs (e.g., `## 2025-09-3|See description|Changed regex to `/^##.*Chat\s*#?\d+/gim` to match "Chat #X" anywhere in the heading line. Now supports:|RESOLVED||10|6
+3|20251001T120000Z|LOW|Token Report Overwhelming with 16 Models|Showing all 16 AI models in token reports was overwhelming for most users who only care about 1-2 models they actually u|See description||RESOLVED||10|3
+4|20251001T120000Z|MEDIUM|Documentation Too Sketchy|User feedback: "For the next version we need a full dokumentation. this is to sketchy."|See description|Created comprehensive documentation:|RESOLVED||10|6
+5|20251002 (Chat #13)T120000Z|HIGH|AICF 2.0 Information Loss (CRITICAL)|AICF 2.0 format with fixed field lengths (40-80 characters) causes 95% information loss when migrating complex projects.|See description|Complete redesign as AICF 3.0: **Status:** 🚧 In Design (Chat #13)|OPEN||8|9
+6|[Date]T120000Z|MEDIUM|[Issue Name]|[Description]|See description|[Fix or temporary solution]|OPEN||8|6
 

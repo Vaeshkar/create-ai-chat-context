@@ -1,0 +1,12 @@
+@DECISIONS
+@SCHEMA
+D#|TIMESTAMP|TITLE|DECISION|RATIONALE|IMPACT|STATUS
+
+@DATA
+1|20251001T120000Z|Per-Project Configuration Storage|Store configuration in `.ai/config.json` (per-project) instead of global config in `~/.aic/config.js|||IMPLEMENTED
+2|20251001T120000Z|Simplified Token Report (Show 4 Models by Default)|Show only 4 AI models by default in token reports (preferred model + top 3 popular), with `--all` fl|||IMPLEMENTED
+3|20251001T120000Z|Star (⭐) for Preferred Model|Mark preferred model with ⭐ star prefix in token reports.|||IMPLEMENTED
+4|20251001T120000Z|Conversation Entry Counting Regex|Changed regex from `/^## Chat #\d+/gm` to `/^##.*Chat\s*#?\d+/gim` for counting conversation entries|||IMPLEMENTED
+5|20251001T120000Z|Comprehensive Documentation Files|Create separate COMMANDS.md and CONFIGURATION.md files instead of putting everything in README.|||IMPLEMENTED
+6|[Date]T120000Z|[Decision Name]|[What you decided]|[Why]|``` **Last Updated:** 2025-10-01|ACTIVE
+

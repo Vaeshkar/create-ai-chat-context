@@ -63,28 +63,38 @@ async function convertConversationLog(aiDir) {
       }
     }
     
-    // Only add if we have meaningful content
+    // Only add if we have meaningful content and avoid duplicates
     if (topic || what || why || outcome) {
       const timestamp = date ? date.replace(/-/g, "") + "T120000Z" : new Date().toISOString().replace(/\.\d{3}/, "");
       
-      // Calculate confidence and impact based on content richness
-      const contentLength = (topic + what + why + outcome).length;
-      const confidence = contentLength > 200 ? "9" : contentLength > 100 ? "8" : "7";
-      const impact = topic.toLowerCase().includes("aicf") || topic.toLowerCase().includes("schema") ? "8" : "6";
+      // Check for duplicates by topic + what combination
+      const isDuplicate = entries.some(entry => 
+        entry.TOPIC === topic.substring(0, 80) && 
+        entry.WHAT === what.substring(0, 100)
+      );
       
-      entries.push({
-        "C#": chatNum,
-        TIMESTAMP: timestamp,
-        TYPE: "W", // Work session
-        TOPIC: topic.substring(0, 80),
-        WHAT: what.substring(0, 100),
-        WHY: why.substring(0, 100),
-        OUTCOME: outcome.substring(0, 120),
-        FILES: "", // Could be enhanced to extract file references
-        CONTEXT_REFS: "", // Could be enhanced to find cross-references
-        CONFIDENCE: confidence,
-        IMPACT_SCORE: impact,
-      });
+      if (!isDuplicate) {
+        // Calculate confidence and impact based on content richness
+        const contentLength = (topic + what + why + outcome).length;
+        const confidence = contentLength > 200 ? "9" : contentLength > 100 ? "8" : "7";
+        const impact = topic.toLowerCase().includes("aicf") || topic.toLowerCase().includes("schema") ? "8" : "6";
+        
+        entries.push({
+          "C#": chatNum,
+          TIMESTAMP: timestamp,
+          TYPE: "W", // Work session
+          TOPIC: topic.substring(0, 80),
+          WHAT: what.substring(0, 100),
+          WHY: why.substring(0, 100),
+          OUTCOME: outcome.substring(0, 120),
+          FILES: "", // Could be enhanced to extract file references
+          CONTEXT_REFS: "", // Could be enhanced to find cross-references
+          CONFIDENCE: confidence,
+          IMPACT_SCORE: impact,
+        });
+      } else {
+        console.log(chalk.gray(`    [SKIP] Duplicate conversation: ${topic.substring(0, 30)}...`));
+      }
     }
   }
   
@@ -612,12 +622,20 @@ function generateIndex(packageJson, conversations, decisions, tasks, issues) {
 /**
  * Main migration function
  */
+
 async function migrateToAICF(aiDir = ".ai", aicfDir = ".aicf") {
   console.log(chalk.bold("\n🚀 Migrating to AICF 3.0\n"));
 
   // Check if .ai/ exists
   if (!(await fs.pathExists(aiDir))) {
     throw new Error(`.ai/ directory not found at ${aiDir}`);
+  }
+  
+  // Check for existing .aicf/ directory to avoid duplication
+  if (await fs.pathExists(aicfDir)) {
+    console.log(chalk.yellow("⚠️  .aicf/ directory already exists!"));
+    console.log(chalk.gray("   Backing up existing .aicf/ to .aicf.backup"));
+    await fs.copy(aicfDir, aicfDir + ".backup");
   }
 
   // Convert all files
@@ -677,6 +695,7 @@ async function migrateToAICF(aiDir = ".ai", aicfDir = ".aicf") {
 
   // Write AICF directory
   await writeAICF(context, aicfDir);
+
 
   console.log(chalk.green("✔ Migration complete!\n"));
   console.log(chalk.bold("📊 Results:"));

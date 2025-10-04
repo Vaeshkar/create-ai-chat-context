@@ -1,13 +1,12 @@
-%% Checkpoint Orchestrator Workflow
-%% How the logic agent orchestrator processes conversation checkpoints with zero API costs
+%% Real-Time Memory Preservation Workflow (v1.0.3)
+%% Every AI response triggers automatic checkpointing with zero API costs
 
 graph TB
-    Start([Long conversation session<br/>5-16 hours, 200+ messages]) --> Trigger{Every 50 messages<br/>or context window<br/>approaching limit?}
+    Start([AI conversation begins<br/>Every response monitored]) --> Response[AI provides response<br/>to user question]
 
-    Trigger -->|No| Continue[Continue conversation<br/>Building features,<br/>making decisions]
-    Continue --> Start
+    Response --> AutoTrigger[🚀 AUTOMATIC TRIGGER<br/>Every response activates<br/>checkpoint system]
     
-    Trigger -->|Yes| Checkpoint[Run: aic checkpoint --demo<br/>or automatic trigger]
+    AutoTrigger --> Checkpoint[Logic Agent Orchestrator<br/>activates in background<br/>~9ms processing]
 
     Checkpoint --> DataDump[Create checkpoint dump:<br/>• Session ID + number<br/>• Message array<br/>• Timestamps<br/>• Token count]
 
@@ -41,11 +40,16 @@ graph TB
 
     FullContext --> Seamless[Continue seamlessly<br/>No re-explaining needed<br/>AI knows everything]
 
-    Seamless --> Benefits[Logic Agent Benefits:<br/>✅ Zero API costs<br/>✅ 10ms processing time<br/>✅ 100% information preservation<br/>✅ Parallel execution<br/>✅ Automatic memory decay<br/>✅ Works with all AIs]
+    Seamless --> NextResponse[User asks next question<br/>AI responds with full context]
+    
+    NextResponse --> Response
+
+    Seamless --> Benefits[Real-Time Benefits:<br/>✅ Every response saved<br/>✅ Zero API costs<br/>✅ 9ms processing time<br/>✅ 100% preservation<br/>✅ No lost conversations<br/>✅ Works with all AIs]
 
     style Start fill:#e1f5ff,stroke:#0288d1,stroke-width:3px
-    style Trigger fill:#ffe6e6,stroke:#f44336,stroke-width:2px
-    style Continue fill:#fff4e6,stroke:#ff9800,stroke-width:2px
+    style Response fill:#fff4e6,stroke:#ff9800,stroke-width:2px
+    style AutoTrigger fill:#ffe6e6,stroke:#f44336,stroke-width:3px
+    style NextResponse fill:#e6ffe6,stroke:#4caf50,stroke-width:2px
     style Checkpoint fill:#e1f5ff,stroke:#0288d1,stroke-width:3px
     style DataDump fill:#fff4e6,stroke:#ff9800,stroke-width:2px
     style Orchestrator fill:#f3e5f5,stroke:#9c27b0,stroke-width:3px

@@ -1,0 +1,23 @@
+{
+  "aicf_version": "2.0.0",
+  "project": {
+    "name": "create-ai-chat-context",
+    "version": "0.13.1",
+    "language": "javascript",
+    "repo": "https://github.com/Vaeshkar/create-ai-chat-context.git",
+    "last_update": "2025-10-02T09:27:23Z"
+  },
+  "created": "2025-10-02T09:27:23Z",
+  "last_update": "2025-10-02T09:27:23Z",
+  "stats": {
+    "conversations": 9,
+    "decisions": 6,
+    "tasks": 49,
+    "issues": 5,
+    "components": 0
+  },
+  "tools": {
+    "generator": "create-ai-chat-context",
+    "generator_version": "0.13.1"
+  }
+}
