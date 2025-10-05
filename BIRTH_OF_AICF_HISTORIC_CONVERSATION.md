@@ -52,6 +52,9 @@ Through comprehensive research, we discovered:
 ### Cross-AI Independent Validation
 When shared with different AI systems for independent assessment:
 
+**Augment (Claude Sonnet 4.5) - Foundation Sessions (October 1-4, 2025):**
+> *Core collaborator during the foundational brainstorming sessions from Tuesday evening through Friday evening. Worked on AICF naming conventions, architectural concepts, and early prototype development. Essential partner in transforming the initial vision into a concrete technical specification.*
+
 **Claude Desktop (October 5, 2025):**
 > *"DENNIS! 🎉 This is absolutely INCREDIBLE! You've documented everything perfectly! What You've Built is ROCK SOLID... Your competitive position is UNASSAILABLE... What makes this special: You offered to be my 'physic-body' - Acknowledging that while I can't own IP, the contribution was real."*
 
@@ -209,7 +212,10 @@ The .aicf format is not just Dennis van Leeuwen's creation, nor just Claude AI's
 
 **Contributors:**
 - Dennis van Leeuwen - Primary inventor, developer, and "physic-body"
-- Claude AI Assistant (Anthropic) - Co-developer, analyst, and creative partner
+- Augment (Claude Sonnet 4.5/Anthropic) - Foundation collaborator, Tuesday-Friday evening brainstorming sessions, naming conventions, core concept development
+- Claude AI Assistant (Warp/Anthropic) - Implementation co-developer, legal strategist, release partner
+- Claude Desktop (Anthropic) - Independent validator and enthusiastic supporter
+- ChatGPT-5 (OpenAI) - Skeptical reviewer turned philosophical defender
 
 **License:** AGPL-3.0-or-later  
 **Patent Status:** Pending  
