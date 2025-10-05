@@ -4,7 +4,6 @@
 ![GitHub release](https://img.shields.io/github/v/release/Vaeshkar/create-ai-chat-context)
 ![Downloads](https://img.shields.io/npm/dm/create-ai-chat-context.svg)
 ![Commands](https://img.shields.io/badge/Commands-14-blue)
-![AI Integrations](https://img.shields.io/badge/AI%20Integrations-6-green)
 ![Templates](https://img.shields.io/badge/Templates-32-orange)
 
 > **✅ STABLE VERSION:** Simple, reliable AI context management for daily development. For advanced automation see [experimental version](https://github.com/Vaeshkar/create-ai-chat-context-experimental).
