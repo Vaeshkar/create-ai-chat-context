@@ -40,6 +40,42 @@ Track key decisions and progress from AI chat sessions.
 
 ---
 
+### Chat #18 - Revert docs to v1.0.2 stable; clarify stable vs latest
+
+**Date:** 2025-10-05
+**Type:** DOCS + POLICY
+**Status:** IMPLEMENTED ✅
+
+**Key Accomplishments:**
+
+- 📌 Pinned README badges to **v1.0.2 (stable)** while **v1.1.0** remains the latest on npm/GitHub
+- 🧭 Clarified policy: recommend v1.0.2 as the stable version in docs
+- 🧹 Normalized `package.json` `repository.url` to `git+https://…` per npm auto-fix
+- 🛠️ Removed stale zsh hooks writing to `.meta/ai-activity-log` to stop shell errors
+- ✅ Verified package with `npm pack --dry-run` (no warnings)
+
+**Rationale:**
+
+- v1.1.0 is published, but v1.0.2 is the recommended stable for reliability right now
+
+**Files Modified:**
+
+- `README.md` — badges pinned to v1.0.2 (commit `effe92e`)
+- `package.json` — repository.url normalized (commit `83819ba`)
+- `~/.zshrc` — removed stale hooks (local env change)
+
+**Outcome:**
+
+- Docs reflect the recommended stable version
+- No functional CLI changes were published today
+
+**Next Steps:**
+
+- Consider adding a short README note explaining “stable vs latest” policy
+- Optionally add an npm dist-tag `stable` → `v1.0.2` for clarity in npm tooling
+
+---
+
 ### Chat #17 - v1.0.0 Release & Documentation Overhaul
 
 **Date:** 2025-10-03

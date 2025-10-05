@@ -4,6 +4,33 @@ Document WHY you made specific technical choices.
 
 ---
 
+## Stable Version Policy: Recommend v1.0.2; keep v1.1.0 published
+
+**Date:** 2025-10-05
+**Status:** ✅ Decided (Chat #18)
+
+### Decision
+
+Present v1.0.2 as the recommended stable version in documentation and badges while v1.1.0 remains published as the latest.
+
+### Rationale
+
+- Stability-first messaging for users
+- v1.1.0 contains changes not yet fully validated for all users/workflows
+
+### Implementation
+
+- Pinned README badges to v1.0.2 (commit `effe92e`)
+- Left `package.json` version at 1.1.0; no new publish performed
+- Consider adding npm dist-tag `stable` → `v1.0.2` to align npm tooling with docs
+
+### Alternatives Considered
+
+- Use dynamic badges (npm latest / GitHub tag) — Rejected for now to keep messaging consistent with stability goal
+- Unpublish v1.1.0 — Rejected; not advisable once published
+
+---
+
 ## v1.0.0 Release Strategy: Dual-Format Coexistence (.ai + .aicf)
 
 **Date:** 2025-10-03
