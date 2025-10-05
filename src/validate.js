@@ -311,7 +311,7 @@ function displayValidationResults(results) {
     if (!results.conversationLog.valid) {
       console.log(
         chalk.gray(
-          "  • Add conversation entries using: npx create-ai-chat-context chat-finish"
+          "  • Add conversation entries manually to conversation-log.md"
         )
       );
     }

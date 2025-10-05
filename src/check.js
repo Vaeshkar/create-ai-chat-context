@@ -87,18 +87,18 @@ async function healthCheck(options = {}) {
     status = 'high';
     statusIcon = '🚨';
     statusColor = chalk.red;
-    recommendations.push('Run: npx create-ai-chat-context archive --keep 10');
-    recommendations.push('Or: npx create-ai-chat-context summary --keep 10');
+    recommendations.push('High token usage - Consider manually cleaning up conversation-log.md');
+    recommendations.push('Or migrate to experimental version for automated management');
   } else if (usage.totalTokens > 15000) {
     status = 'moderate';
     statusIcon = '⚠️';
     statusColor = chalk.yellow;
-    recommendations.push('Consider archiving soon: npx create-ai-chat-context archive --keep 10');
+    recommendations.push('Consider reviewing and cleaning up conversation-log.md manually');
   } else if (entryCount > 30) {
     status = 'moderate';
     statusIcon = '⚠️';
     statusColor = chalk.yellow;
-    recommendations.push('Many conversation entries. Consider archiving: npx create-ai-chat-context archive --keep 10');
+    recommendations.push('Many conversation entries - Consider manual cleanup of old entries');
   }
 
   // Display status

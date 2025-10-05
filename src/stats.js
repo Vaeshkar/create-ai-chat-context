@@ -180,7 +180,7 @@ async function showStats() {
     if (conversationEntries > 10) {
       console.log(
         chalk.yellow(
-          "      💡 Action: Run 'npx aic archive' to archive old conversations"
+          "      💡 Action: Consider manually archiving old conversation-log.md entries"
         )
       );
     } else {
@@ -199,7 +199,7 @@ async function showStats() {
     if (conversationEntries > 10) {
       console.log(
         chalk.red(
-          "      💡 Action: Run 'npx aic archive' or 'npx aic summary' immediately"
+          "      💡 Action: Manually clean up conversation-log.md or use experimental version"
         )
       );
     } else {
@@ -245,19 +245,14 @@ async function showStats() {
   // Display helpful commands
   console.log(chalk.bold("🛠️  Helpful Commands:\n"));
   console.log(
-    chalk.gray("   npx aic migrate           - Convert to AICF 2.0 format")
-  );
-  console.log(
-    chalk.gray("   npx aic context           - View AI context summary")
-  );
-  console.log(
-    chalk.gray("   npx aic chat-finish       - Auto-update all files")
+    chalk.gray("   npx aic migrate           - Add missing files to knowledge base")
   );
   console.log(
     chalk.gray("   npx aic search <query>    - Search knowledge base")
   );
   console.log(chalk.gray("   npx aic validate          - Check quality"));
-  console.log(chalk.gray("   npx aic archive           - Archive old entries"));
+  console.log(chalk.gray("   npx aic check             - Quick health check"));
+  console.log(chalk.gray("   npx aic tokens            - View detailed token usage"));
   console.log();
 }
 
