@@ -1,0 +1,15 @@
+@DECISIONS
+@SCHEMA
+D#|TIMESTAMP|TITLE|DECISION|RATIONALE|IMPACT|STATUS
+
+@DATA
+1|[DATE]T120000Z|[Decision Name]|[What you decided]|[Why you made this choice]|[How it affects the project]|ACTIVE
+2|[DATE]T120000Z|Technology Stack Choice|[e.g., Chose React over Vue]|[e.g., Team familiarity, ecosystem, performance needs]|[e.g., Affects all frontend development]|ACTIVE
+3|[DATE]T120000Z|Database Selection|[e.g., PostgreSQL over MongoDB]|[e.g., ACID compliance needed, complex relationships]|[e.g., Determines data modeling approach]|ACTIVE
+
+@NOTES
+- Add new decisions with incremental D# numbers
+- Use ISO timestamp format: YYYYMMDDTHHMMSSZ
+- STATUS: ACTIVE, IMPLEMENTED, DEPRECATED, ABANDONED
+- Keep rationale detailed - future you will thank you!
+- Update impact as you learn more about consequences

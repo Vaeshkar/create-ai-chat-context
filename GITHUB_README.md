@@ -15,7 +15,7 @@
 
 Stop wasting 30+ minutes re-explaining your project to AI assistants every chat session.
 
-[Quick Start](#-quick-start) • [12 Commands](#-essential-commands) • [32 Templates](#-32-comprehensive-templates) • [AI Integrations](#-ai-integrations)
+[Quick Start](#-quick-start) • [14 Commands](#-essential-commands) • [32 Templates](#-32-comprehensive-templates) • [AI Integrations](#-ai-integrations)
 
 </div>
 
@@ -109,7 +109,7 @@ git commit -m "Add AI knowledge base"
 
 <div align="center">
 
-### **12 Focused Commands - Everything You Need**
+### **14 Focused Commands - Everything You Need**
 
 </div>
 
@@ -131,6 +131,8 @@ npx aic cursor                  # Generate .cursorrules for Cursor IDE
 npx aic warp                    # Generate Warp AI terminal instructions  
 npx aic copilot                 # Generate GitHub Copilot instructions
 npx aic claude-project          # Generate Claude Projects export
+npx aic chatgpt                 # Generate ChatGPT integration instructions
+npx aic gemini                  # Generate Google Gemini integration instructions
 ```
 
 **That's it!** Simple, focused, reliable.
@@ -167,7 +169,7 @@ npx aic claude-project          # Generate Claude Projects export
 
 <div align="center">
 
-### **4 Popular AI Assistants Supported**
+### **6 Popular AI Assistants Supported**
 
 </div>
 
@@ -197,6 +199,20 @@ npx aic copilot
 npx aic claude-project
 # Creates CLAUDE_PROJECT.md for easy import
 # ✅ Set up Claude Projects with full knowledge base!
+```
+
+### ChatGPT Integration
+```bash
+npx aic chatgpt
+# Creates CHATGPT_INSTRUCTIONS.md with optimized prompts
+# ✅ Perfect setup for ChatGPT web interface and API!
+```
+
+### Google Gemini Integration
+```bash
+npx aic gemini
+# Creates GEMINI_INSTRUCTIONS.md optimized for 1M token context
+# ✅ Leverage Gemini's massive context window for large projects!
 ```
 
 ---
@@ -288,7 +304,7 @@ Looking for **automated conversation parsing**, **intelligent agents**, and **mu
 
 ## 📚 Documentation
 
-- **[Complete Command Reference](COMMANDS.md)** - All 12 commands explained
+- **[Complete Command Reference](COMMANDS.md)** - All 14 commands explained
 - **[Configuration Guide](CONFIGURATION.md)** - Customize the tool
 - **[Full Documentation](docs/)** - Comprehensive guides
 

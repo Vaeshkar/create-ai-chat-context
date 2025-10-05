@@ -1,0 +1,14 @@
+@ISSUES
+@SCHEMA
+I#|TIMESTAMP|TITLE|DESCRIPTION|SEVERITY|WORKAROUND|STATUS
+
+@DATA
+1|[DATE]T120000Z|[Issue Title]|[Description of the problem]|[LOW/MEDIUM/HIGH/CRITICAL]|[Temporary solution if any]|OPEN
+2|[DATE]T120000Z|Example Bug|Authentication fails on mobile devices|MEDIUM|Users can use desktop version|INVESTIGATING
+
+@NOTES
+- I# should be incremental numbers for each issue
+- TIMESTAMP: When the issue was first identified (YYYYMMDDTHHMMSSZ)
+- SEVERITY: LOW, MEDIUM, HIGH, CRITICAL
+- WORKAROUND: Temporary solution while issue is unresolved
+- STATUS: OPEN, INVESTIGATING, RESOLVED, CLOSED, WONTFIX

@@ -16,7 +16,7 @@ We've **simplified this version** to focus on **stability and reliability**. Her
 - **Users wanted reliability** over experimental automation  
 - **Manual workflow** gives you full control over your knowledge base
 
-**Result:** This stable version has **12 focused commands** that just work, while all experimental features live in the [experimental repo](https://github.com/Vaeshkar/create-ai-chat-context-experimental).
+**Result:** This stable version has **14 focused commands** that just work, while all experimental features live in the [experimental repo](https://github.com/Vaeshkar/create-ai-chat-context-experimental).
 
 ---
 
@@ -157,7 +157,7 @@ npx aic stats                   # View knowledge base statistics
 npx aic config                  # Manage configuration
 ```
 
-### AI Integrations (4)
+### AI Integrations (6)
 
 ```bash
 # AI Assistant Setup
@@ -165,9 +165,11 @@ npx aic cursor                  # Generate .cursorrules for Cursor IDE
 npx aic warp                    # Generate Warp AI terminal instructions
 npx aic copilot                 # Generate GitHub Copilot instructions
 npx aic claude-project          # Generate Claude Projects export
+npx aic chatgpt                 # Generate ChatGPT integration instructions
+npx aic gemini                  # Generate Google Gemini integration instructions
 ```
 
-**That's it!** Just 12 focused commands that cover everything you need.
+**That's it!** Just 14 focused commands that cover everything you need.
 
 ---
 
@@ -199,6 +201,20 @@ npx aic copilot
 npx aic claude-project
 # Creates CLAUDE_PROJECT.md for easy import
 # Set up Claude Projects with your full knowledge base
+```
+
+### ChatGPT Integration
+```bash
+npx aic chatgpt
+# Creates CHATGPT_INSTRUCTIONS.md with optimized prompts
+# Perfect setup for ChatGPT web interface and API
+```
+
+### Google Gemini Integration
+```bash
+npx aic gemini
+# Creates GEMINI_INSTRUCTIONS.md optimized for 1M token context
+# Take advantage of Gemini's massive context window
 ```
 
 ---

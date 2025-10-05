@@ -36,3 +36,12 @@ temp/
 
 # Warp AI instructions
 WARP_AI_INSTRUCTIONS.md
+
+# ChatGPT instructions
+CHATGPT_INSTRUCTIONS.md
+
+# Gemini AI instructions
+GEMINI_INSTRUCTIONS.md
+
+# Development/debugging artifacts
+.meta/

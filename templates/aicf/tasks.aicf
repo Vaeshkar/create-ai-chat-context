@@ -1,0 +1,18 @@
+@TASKS
+@SCHEMA
+T#|PRIORITY|EFFORT|STATUS|TASK|DEPENDENCIES|ASSIGNED|CREATED|COMPLETED
+
+@DATA
+1|H|M|TODO|Set up initial project structure|None|[Your Name]|[DATE]T120000Z|
+2|H|L|TODO|Configure development environment|T1|[Your Name]|[DATE]T120000Z|
+3|M|S|TODO|Write basic README.md documentation|T1|[Your Name]|[DATE]T120000Z|
+4|M|M|TODO|Implement core functionality|T1,T2|[Your Name]|[DATE]T120000Z|
+5|L|L|TODO|Add comprehensive tests|T4|[Your Name]|[DATE]T120000Z|
+
+@NOTES
+- PRIORITY: H(igh), M(edium), L(ow)
+- EFFORT: S(mall), M(edium), L(arge) 
+- STATUS: TODO, IN_PROGRESS, DONE, BLOCKED, CANCELLED
+- Dependencies: Reference other task numbers (T1, T2, etc.)
+- Use ISO timestamp format: YYYYMMDDTHHMMSSZ
+- Update status and completed date when tasks are finished

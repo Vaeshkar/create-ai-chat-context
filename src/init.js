@@ -9,6 +9,7 @@ const { detectProjectType, getProjectInfo } = require("./detect");
 async function init(options = {}) {
   const cwd = process.cwd();
   const aiDir = path.join(cwd, ".ai");
+  const aicfDir = path.join(cwd, ".aicf");
   const aiInstructions = path.join(cwd, ".ai-instructions");
   const newChatPrompt = path.join(cwd, "NEW_CHAT_PROMPT.md");
 
@@ -105,6 +106,10 @@ async function init(options = {}) {
     await fs.ensureDir(aiDir);
     spinner.succeed("Created .ai/ directory");
 
+    // Create .aicf directory
+    await fs.ensureDir(aicfDir);
+    spinner.succeed("Created .aicf/ directory");
+
     // Copy template files
     const templatesDir = path.join(__dirname, "../templates");
     const templateDir = getTemplateDir(templateName);
@@ -143,6 +148,22 @@ async function init(options = {}) {
 
     // Copy NEW_CHAT_PROMPT.md to root
     await fs.copy(path.join(templatesDir, "NEW_CHAT_PROMPT.md"), newChatPrompt);
+
+    // Copy .aicf template files
+    const aicfTemplateFiles = [
+      "README.md",
+      "conversations.aicf",
+      "decisions.aicf",
+      "tasks.aicf",
+      "issues.aicf",
+      "technical-context.aicf",
+    ];
+
+    for (const file of aicfTemplateFiles) {
+      const src = path.join(templatesDir, "aicf", file);
+      const dest = path.join(aicfDir, file);
+      await fs.copy(src, dest);
+    }
 
     spinner.succeed("Copied all template files");
 
@@ -226,6 +247,9 @@ async function init(options = {}) {
       chalk.gray("   .ai/                  - 7 essential documentation files")
     );
     console.log(
+      chalk.gray("   .aicf/                - AI-optimized structured files")
+    );
+    console.log(
       chalk.gray("   .ai-instructions      - Instructions for AI assistants")
     );
     console.log(
@@ -250,7 +274,7 @@ async function init(options = {}) {
 
     console.log("3. Commit to Git:");
     console.log(
-      chalk.gray("   git add .ai/ .ai-instructions NEW_CHAT_PROMPT.md")
+      chalk.gray("   git add .ai/ .aicf/ .ai-instructions NEW_CHAT_PROMPT.md")
     );
     console.log(chalk.gray('   git commit -m "feat: Add AI memory system"\n'));
 

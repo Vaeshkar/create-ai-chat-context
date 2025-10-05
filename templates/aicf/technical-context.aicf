@@ -1,0 +1,21 @@
+@TECHNICAL_CONTEXT
+@SCHEMA
+TC#|CATEGORY|KEY|VALUE|DESCRIPTION
+
+@DATA
+1|LANGUAGE|primary|[Your Primary Language]|Main programming language for the project
+2|FRAMEWORK|main|[Your Framework]|Primary framework or library used
+3|ARCHITECTURE|pattern|[Architecture Pattern]|Overall architectural approach (MVC, microservices, etc.)
+4|DATABASE|type|[Database Type]|Primary database system
+5|DEPLOYMENT|environment|[Deployment Target]|Where the application is deployed (cloud, on-premise, etc.)
+6|TESTING|framework|[Testing Framework]|Primary testing framework used
+7|BUILD|tool|[Build Tool]|Build system or task runner
+8|DEPENDENCIES|package_manager|[Package Manager]|How dependencies are managed (npm, pip, cargo, etc.)
+
+@NOTES
+- TC# should be incremental numbers
+- CATEGORY: Groups related technical context (LANGUAGE, FRAMEWORK, ARCHITECTURE, etc.)
+- KEY: Specific aspect within the category
+- VALUE: The actual technology, tool, or approach used
+- DESCRIPTION: Brief explanation of why this choice or how it's used
+- Add more entries as your tech stack evolves

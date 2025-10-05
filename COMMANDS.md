@@ -4,9 +4,9 @@ Complete reference for all `create-ai-chat-context` commands in the **stable ver
 
 ---
 
-## 🎯 Stable Version - 12 Focused Commands
+## 🎯 Stable Version - 14 Focused Commands
 
-This version provides **12 essential commands** that cover everything you need for AI context management. All complex experimental features are available in the [experimental version](https://github.com/Vaeshkar/create-ai-chat-context-experimental).
+This version provides **14 essential commands** that cover everything you need for AI context management. All complex experimental features are available in the [experimental version](https://github.com/Vaeshkar/create-ai-chat-context-experimental).
 
 ---
 
@@ -25,11 +25,13 @@ npx aic tokens                  # Show token usage breakdown
 npx aic stats                   # View knowledge base statistics
 npx aic config                  # Manage configuration
 
-# AI Integrations (4 commands)
+# AI Integrations (6 commands)
 npx aic cursor                  # Generate .cursorrules for Cursor IDE
 npx aic warp                    # Generate Warp AI terminal instructions  
 npx aic copilot                 # Generate GitHub Copilot instructions
 npx aic claude-project          # Generate Claude Projects export
+npx aic chatgpt                 # Generate ChatGPT integration instructions
+npx aic gemini                  # Generate Google Gemini integration instructions
 ```
 
 **💡 Tip:** Use `npx aic` instead of `npx create-ai-chat-context` for shorter commands!
@@ -421,6 +423,62 @@ npx aic claude-project [options]
 
 ---
 
+### chatgpt
+
+Generate ChatGPT integration instructions for web interface and API.
+
+**Syntax:**
+```bash
+npx aic chatgpt [options]
+```
+
+**Options:**
+- `-f, --force` - Overwrite existing `CHATGPT_INSTRUCTIONS.md` file
+
+**What it does:**
+- Creates `CHATGPT_INSTRUCTIONS.md` with optimized prompts
+- Provides perfect setup for ChatGPT web interface
+- Includes GPT-4 Turbo optimization and workflow tips
+- Shows how to manage 128K token context window
+
+**Example:**
+```bash
+# Generate ChatGPT instructions
+npx aic chatgpt
+
+# The file contains the perfect prompt to copy-paste into ChatGPT
+```
+
+---
+
+### gemini
+
+Generate Google Gemini integration instructions optimized for massive context.
+
+**Syntax:**
+```bash
+npx aic gemini [options]
+```
+
+**Options:**
+- `-f, --force` - Overwrite existing `GEMINI_INSTRUCTIONS.md` file
+
+**What it does:**
+- Creates `GEMINI_INSTRUCTIONS.md` with 1M token optimization
+- Leverages Gemini's massive context window advantage
+- Provides advanced workflow tips for large projects
+- Includes multi-modal usage guidance
+
+**Example:**
+```bash
+# Generate Gemini instructions
+npx aic gemini
+
+# Perfect for large codebases that need comprehensive analysis
+```
+
+---
+
 ## Common Workflows
 
 ### New Project Setup
@@ -436,6 +494,8 @@ vim .ai/technical-decisions.md
 # 3. Set up AI integrations
 npx aic cursor          # For Cursor IDE
 npx aic warp           # For Warp terminal
+npx aic chatgpt        # For ChatGPT web interface
+npx aic gemini         # For Google Gemini
 
 # 4. Commit to version control
 git add .ai/ .ai-instructions .cursorrules

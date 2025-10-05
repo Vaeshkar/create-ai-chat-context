@@ -17,6 +17,8 @@ const { generateCursorRules } = require("../src/cursor");
 const { generateCopilotInstructions } = require("../src/copilot");
 const { generateClaudeProject } = require("../src/claude-project");
 const { generateWarpInstructions } = require("../src/warp");
+const { generateChatGPTInstructions } = require("../src/chatgpt");
+const { generateGeminiInstructions } = require("../src/gemini");
 const packageJson = require("../package.json");
 
 const program = new Command();
@@ -90,6 +92,32 @@ program
   .action(async (options) => {
     try {
       await generateWarpInstructions(options);
+    } catch (error) {
+      console.error(chalk.red("Error:"), error.message);
+      process.exit(1);
+    }
+  });
+
+program
+  .command("chatgpt")
+  .description("Generate ChatGPT integration instructions")
+  .option("-f, --force", "Overwrite existing CHATGPT_INSTRUCTIONS.md file")
+  .action(async (options) => {
+    try {
+      await generateChatGPTInstructions(options);
+    } catch (error) {
+      console.error(chalk.red("Error:"), error.message);
+      process.exit(1);
+    }
+  });
+
+program
+  .command("gemini")
+  .description("Generate Google Gemini integration instructions")
+  .option("-f, --force", "Overwrite existing GEMINI_INSTRUCTIONS.md file")
+  .action(async (options) => {
+    try {
+      await generateGeminiInstructions(options);
     } catch (error) {
       console.error(chalk.red("Error:"), error.message);
       process.exit(1);

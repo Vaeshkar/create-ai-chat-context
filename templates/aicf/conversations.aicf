@@ -1,0 +1,17 @@
+@CONVERSATIONS
+@SCHEMA
+C#|TIMESTAMP|TITLE|SUMMARY|AI_MODEL|DECISIONS|ACTIONS|STATUS
+
+@DATA
+1|[DATE]T120000Z|Initial Project Setup|Started the project, discussed architecture and technology choices|[AI Model Used]|Technology stack selection|Created project structure|COMPLETED
+2|[DATE]T120000Z|Feature Development Session|Implemented core features and discussed implementation approach|[AI Model Used]|API design decisions|Added core functionality|COMPLETED
+
+@NOTES
+- C# should be incremental numbers for each conversation
+- TIMESTAMP: Use format YYYYMMDDTHHMMSSZ
+- TITLE: Short descriptive title for the conversation
+- SUMMARY: 1-2 sentence summary of what was discussed/accomplished
+- AI_MODEL: Which AI assistant you used (GPT-4, Claude, etc.)
+- DECISIONS: Key decisions made during this conversation
+- ACTIONS: Concrete actions taken or code written
+- STATUS: COMPLETED, ONGOING, PAUSED, CANCELLED

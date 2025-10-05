@@ -14,6 +14,7 @@ const ora = require("ora");
 async function migrateProject(options = {}) {
   const cwd = process.cwd();
   const aiDir = path.join(cwd, ".ai");
+  const aicfDir = path.join(cwd, ".aicf");
   const templatesDir = path.join(__dirname, "../templates");
 
   console.log(chalk.bold("\n🔄 Migrating AI Memory System\n"));
@@ -50,6 +51,29 @@ async function migrateProject(options = {}) {
     `Found ${existingAiFiles.length}/${aiTemplateFiles.length} .ai/ files`
   );
 
+  // Check .aicf directory and files
+  const aicfTemplateFiles = [
+    "README.md",
+    "conversations.aicf",
+    "decisions.aicf",
+    "tasks.aicf",
+    "issues.aicf",
+    "technical-context.aicf",
+  ];
+
+  const aicfExists = fs.existsSync(aicfDir);
+  const missingAicfFiles = aicfExists
+    ? aicfTemplateFiles.filter((file) => !fs.existsSync(path.join(aicfDir, file)))
+    : aicfTemplateFiles;
+
+  const existingAicfFiles = aicfExists
+    ? aicfTemplateFiles.filter((file) => fs.existsSync(path.join(aicfDir, file)))
+    : [];
+
+  spinner.succeed(
+    `Found ${existingAicfFiles.length}/${aicfTemplateFiles.length} .aicf/ files`
+  );
+
   // Show what will be added
   console.log();
   if (missingAiFiles.length > 0) {
@@ -58,7 +82,20 @@ async function migrateProject(options = {}) {
       console.log(chalk.gray(`   + ${file}`));
     });
     console.log();
-  } else {
+  }
+
+  if (missingAicfFiles.length > 0) {
+    console.log(chalk.bold("🔧 Will add to .aicf/:"));
+    if (!aicfExists) {
+      console.log(chalk.gray("   + Create .aicf/ directory"));
+    }
+    missingAicfFiles.forEach((file) => {
+      console.log(chalk.gray(`   + ${file}`));
+    });
+    console.log();
+  }
+
+  if (missingAiFiles.length === 0 && missingAicfFiles.length === 0) {
     console.log(chalk.green("✅ Your project is already up to date!\n"));
     return;
   }
@@ -94,6 +131,29 @@ async function migrateProject(options = {}) {
     spinner.succeed(`Added ${missingAiFiles.length} file(s) to .ai/`);
   }
 
+  // Add missing .aicf/ files
+  if (missingAicfFiles.length > 0) {
+    spinner.start("Setting up .aicf/ directory and files...");
+
+    // Create .aicf directory if it doesn't exist
+    if (!aicfExists) {
+      await fs.ensureDir(aicfDir);
+    }
+
+    for (const file of missingAicfFiles) {
+      const src = path.join(templatesDir, "aicf", file);
+      const dest = path.join(aicfDir, file);
+
+      if (await fs.pathExists(src)) {
+        await fs.copy(src, dest);
+      } else {
+        spinner.warn(`Template not found: .aicf/${file}`);
+      }
+    }
+
+    spinner.succeed(`Added ${missingAicfFiles.length} file(s) to .aicf/`);
+  }
+
   // Check for root files
   const rootFiles = [".ai-instructions", "NEW_CHAT_PROMPT.md"];
   const missingRootFiles = rootFiles.filter(
@@ -125,6 +185,11 @@ async function migrateProject(options = {}) {
       `   .ai/ - ${aiTemplateFiles.length} essential documentation files`
     )
   );
+  console.log(
+    chalk.gray(
+      `   .aicf/ - ${aicfTemplateFiles.length} AI-optimized structured files`
+    )
+  );
   console.log();
 
   console.log(chalk.bold("📝 Next steps:\n"));
@@ -148,7 +213,7 @@ async function migrateProject(options = {}) {
 
   console.log("4. Commit the changes:");
   console.log(
-    chalk.gray("   git add .ai/ .ai-instructions NEW_CHAT_PROMPT.md")
+    chalk.gray("   git add .ai/ .aicf/ .ai-instructions NEW_CHAT_PROMPT.md")
   );
   console.log(
     chalk.gray('   git commit -m "Migrate to latest AI memory system"\n')
