@@ -1,5 +1,8 @@
 #!/usr/bin/env node
 
+// SPDX-License-Identifier: AGPL-3.0-or-later
+// Copyright (c) 2025 Dennis van Leeuwen
+
 const { Command } = require("commander");
 const chalk = require("chalk");
 const { init } = require("../src/init");

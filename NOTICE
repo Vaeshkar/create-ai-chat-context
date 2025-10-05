@@ -1,0 +1,29 @@
+create-ai-chat-context - Stable AI memory system for projects
+Copyright (c) 2025 Dennis van Leeuwen
+Email: leeuwen@gmail.com
+GitHub: https://github.com/Vaeshkar/create-ai-chat-context
+
+This software contains original works and innovations by Dennis van Leeuwen,
+including but not limited to:
+- AI Context Format (AICF) file structure design
+- Token-optimized semantic formatting
+- Multi-AI integration system 
+- Knowledge base management architecture
+
+Licensed under the GNU Affero General Public License v3.0 or later.
+See LICENSE file for complete license terms.
+
+PATENT CLAIMS:
+This software may be protected by one or more patents or patent applications.
+Rights to use this software are granted solely under the terms of the AGPL-3.0+ license.
+
+TRADEMARK NOTICE:
+"create-ai-chat-context", "AICF", and related marks are trademarks of Dennis van Leeuwen.
+
+ATTRIBUTION:
+Any derivative work must preserve this copyright notice and attribution.
+When modifying or redistributing this software, you must:
+1. Retain all copyright notices
+2. Include this NOTICE file
+3. Comply with AGPL-3.0+ licensing terms
+4. Make source code available under AGPL-3.0+

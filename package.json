@@ -41,7 +41,7 @@
     "session-memory"
   ],
   "author": "Dennis van Leeuwen (AI Orchestrator Engineer)",
-  "license": "MIT",
+  "license": "AGPL-3.0-or-later",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Vaeshkar/create-ai-chat-context.git"

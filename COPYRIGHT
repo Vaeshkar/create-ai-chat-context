@@ -1,0 +1,39 @@
+Copyright (c) 2025 Dennis van Leeuwen <leeuwen@gmail.com>
+
+PRIMARY INVENTOR AND COPYRIGHT OWNER:
+Dennis van Leeuwen - Primary author and architect
+- AI Context Format (AICF) concept and implementation
+- Token optimization algorithms and semantic structuring  
+- Multi-AI integration system design
+- Knowledge base management architecture
+
+CO-DEVELOPMENT WITH AI ASSISTANCE:
+This software was co-developed with assistance from Claude AI Assistant 
+by Anthropic, which contributed to code generation, optimization, and 
+documentation under the direction of Dennis van Leeuwen.
+
+PATENT AND INTELLECTUAL PROPERTY CLAIMS:
+The following innovations may be subject to patent protection:
+1. AI Context Format (AICF) - Token-optimized semantic file structure
+2. Multi-AI integration architecture for context preservation
+3. Incremental knowledge base update mechanisms
+4. Cross-session AI memory persistence systems
+
+LICENSING:
+This work is licensed under the GNU Affero General Public License v3.0 
+or later (AGPL-3.0+). All derivative works must:
+- Remain open source under AGPL-3.0+
+- Preserve copyright attribution
+- Include source code availability
+- Maintain copyleft protections
+
+DISTRIBUTION AND MODIFICATION:
+When redistributing or modifying this software:
+1. Preserve all copyright notices and attributions
+2. Include this COPYRIGHT file and NOTICE file  
+3. License derivative works under AGPL-3.0+
+4. Provide source code access to all recipients
+5. Maintain patent claim disclosures
+
+For licensing inquiries: leeuwen@gmail.com
+GitHub: https://github.com/Vaeshkar/create-ai-chat-context
