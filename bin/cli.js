@@ -16,6 +16,7 @@ const { migrateProject } = require("../src/migrate");
 const { generateCursorRules } = require("../src/cursor");
 const { generateCopilotInstructions } = require("../src/copilot");
 const { generateClaudeProject } = require("../src/claude-project");
+const { generateWarpInstructions } = require("../src/warp");
 const packageJson = require("../package.json");
 
 const program = new Command();
@@ -76,6 +77,19 @@ program
   .action(async (options) => {
     try {
       await generateClaudeProject(options);
+    } catch (error) {
+      console.error(chalk.red("Error:"), error.message);
+      process.exit(1);
+    }
+  });
+
+program
+  .command("warp")
+  .description("Generate Warp AI integration instructions")
+  .option("-f, --force", "Overwrite existing WARP_AI_INSTRUCTIONS.md file")
+  .action(async (options) => {
+    try {
+      await generateWarpInstructions(options);
     } catch (error) {
       console.error(chalk.red("Error:"), error.message);
       process.exit(1);

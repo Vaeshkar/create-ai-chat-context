@@ -110,3 +110,41 @@ Commands removed:
 
 This creates a stable, maintainable version focused on essential
 functionality while complex features remain in experimental repo."
+COMMAND_END:31123:2025-10-05T10:32:48Z:0
+COMMAND_START:31123:2025-10-05T10:32:57Z:cd /Users/leeuwen/Programming/create-ai-chat-context && git push origin main
+COMMAND_END:31123:2025-10-05T10:32:58Z:0
+COMMAND_END:31123:2025-10-05T10:33:38Z:0
+COMMAND_END:31123:2025-10-05T10:34:28Z:0
+COMMAND_START:31123:2025-10-05T10:34:58Z:cd /Users/leeuwen/Programming/create-ai-chat-context && echo 'CLEANUP COMPLETE!' && echo 'Before: 39 source files, 20+ commands' && echo 'After: 15 source files, 11 commands'
+COMMAND_END:31123:2025-10-05T10:34:58Z:0
+COMMAND_START:31123:2025-10-05T10:35:05Z:cd /Users/leeuwen/Programming/create-ai-chat-context && echo 'Simplified CLI:' && node bin/cli.js --help
+COMMAND_END:31123:2025-10-05T10:35:05Z:0
+COMMAND_START:31123:2025-10-05T10:36:55Z:cd /Users/leeuwen/Programming/create-ai-chat-context && echo "🔍 Checking for Warp integration..." && grep -r -i "warp" src/ . --include="*.js" --include="*.md" | head -10
+COMMAND_END:31123:2025-10-05T10:36:55Z:0
+COMMAND_START:31123:2025-10-05T10:37:17Z:cd /Users/leeuwen/Programming/create-ai-chat-context && echo "📁 Current templates:" && ls templates/ && echo -e "
+🔬 Experimental repo templates:" && ls ../create-ai-chat-context-experimental/templates/ | head -15
+COMMAND_END:31123:2025-10-05T10:37:17Z:0
+COMMAND_START:31123:2025-10-05T10:37:26Z:cd /Users/leeuwen/Programming/create-ai-chat-context && echo "📊 Template comparison:" && echo "Current: $(ls templates/ | grep -v '.md' | wc -l | xargs) templates" && echo "Experimental: $(ls ../create-ai-chat-context-experimental/templates/ | grep -v '.md' | wc -l | xargs) templates"
+COMMAND_END:31123:2025-10-05T10:37:26Z:0
+COMMAND_START:31123:2025-10-05T10:37:35Z:cd /Users/leeuwen/Programming/create-ai-chat-context && echo "🔍 Finding template differences..." && diff <(ls templates/ | grep -v '.md' | sort) <(ls ../create-ai-chat-context-experimental/templates/ | grep -v '.md' | sort)
+COMMAND_END:31123:2025-10-05T10:37:35Z:0
+COMMAND_START:31123:2025-10-05T10:37:44Z:cd /Users/leeuwen/Programming/create-ai-chat-context && echo "📁 All templates we have:" && ls templates/ | grep -v '.md' | sort
+COMMAND_END:31123:2025-10-05T10:37:44Z:0
+COMMAND_START:31123:2025-10-05T10:39:00Z:cd /Users/leeuwen/Programming/create-ai-chat-context && echo "🧪 Testing new Warp integration command..." && node bin/cli.js --help | grep -A 1 -B 1 warp
+COMMAND_END:31123:2025-10-05T10:39:01Z:0
+COMMAND_START:31123:2025-10-05T10:39:09Z:cd /Users/leeuwen/Programming/create-ai-chat-context && node bin/cli.js warp
+COMMAND_END:31123:2025-10-05T10:39:09Z:0
+COMMAND_START:31123:2025-10-05T10:39:19Z:cd /Users/leeuwen/Programming/create-ai-chat-context && ls -la WARP_AI_INSTRUCTIONS.md && echo "File created successfully! Size: $(wc -l < WARP_AI_INSTRUCTIONS.md) lines"
+COMMAND_END:31123:2025-10-05T10:39:19Z:0
+COMMAND_START:31123:2025-10-05T10:39:27Z:cd /Users/leeuwen/Programming/create-ai-chat-context && echo "🎯 Final CLI with Warp integration:" && node bin/cli.js --help
+COMMAND_END:31123:2025-10-05T10:39:27Z:0
+COMMAND_START:31123:2025-10-05T10:39:40Z:cd /Users/leeuwen/Programming/create-ai-chat-context && rm WARP_AI_INSTRUCTIONS.md && git add . && git commit -m "feat: Add Warp AI integration command
+
+- Added 'npx aic warp' command for Warp AI terminal integration
+- Creates WARP_AI_INSTRUCTIONS.md with perfect prompt for context loading
+- Provides workflow tips and maintenance commands
+- Completes AI integration suite: Cursor, Copilot, Claude Projects, Warp
+- Now supports all major AI coding assistants with simple setup
+
+Usage: npx aic warp
+Creates: WARP_AI_INSTRUCTIONS.md (copy-paste prompt for Warp AI)"

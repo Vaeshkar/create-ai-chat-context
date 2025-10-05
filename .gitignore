@@ -33,3 +33,6 @@ temp/
 .env
 .env.local
 .env.*.local
+
+# Warp AI instructions
+WARP_AI_INSTRUCTIONS.md
