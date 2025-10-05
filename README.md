@@ -4,6 +4,8 @@
 ![GitHub tag](https://img.shields.io/github/v/tag/Vaeshkar/create-ai-chat-context)
 ![Downloads](https://img.shields.io/npm/dm/create-ai-chat-context.svg)
 
+> **🚧 EXPERIMENTAL FEATURES:** Looking for advanced automation, agents, and multi-AI support? Check out the [experimental version](https://github.com/Vaeshkar/create-ai-chat-context-experimental) - but use this stable version for production!
+
 > **🚀 MAJOR UPDATE v1.0.2** - Started with an **idea 3.5 days ago** (Sept 30, 8pm), already **3,300+ downloads**! *Next goal: 1,000,000 downloads!* 🎯
 
 **🔥 What's New:**
