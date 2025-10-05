@@ -1,111 +1,85 @@
 # Documentation
 
-Complete documentation for `create-ai-chat-context`.
+Simple, focused documentation for the stable version of `create-ai-chat-context`.
 
 ---
 
 ## 📚 Main Documentation
 
 - **[README.md](../README.md)** - Main project documentation
-- **[COMMANDS.md](../COMMANDS.md)** - Complete command reference
+- **[COMMANDS.md](../COMMANDS.md)** - Complete command reference  
 - **[CONFIGURATION.md](../CONFIGURATION.md)** - Configuration guide
 - **[CHANGELOG.md](../CHANGELOG.md)** - Version history
 - **[CONTRIBUTING.md](../CONTRIBUTING.md)** - Contribution guidelines
-- **[ROADMAP.md](../ROADMAP.md)** - Future plans
 
 ---
 
-## 🎯 v1.0.0 - Simplified Approach
+## 🎯 Stable Version - Simple & Reliable
 
-**v1.0.0 focuses on simplicity and maintainability:**
+**This version focuses on simplicity and maintainability:**
 
-- **7 essential files** in `.ai/` folder
-- **Simple markdown format** - no complex optimization needed
-- **Manual workflow** - ask AI to update files at session end
-- **Works with all AI assistants** - no special format requirements
+✅ **12 focused commands** - Core functionality only  
+✅ **32 comprehensive templates** - All major tech stacks  
+✅ **4 AI integrations** - Cursor, Copilot, Claude, Warp  
+✅ **Manual workflow** - You control when files update  
+✅ **Universal compatibility** - Works with all AI assistants  
 
-**Key files:**
+**Knowledge base structure:**
 
-- `conversation-log.md` - Chat history and decisions
-- `technical-decisions.md` - Architecture choices
-- `next-steps.md` - Current priorities
-- `project-overview.md` - Project context for AI
-- `design-system.md` - Design patterns
-- `code-style.md` - Coding standards
+- `conversation-log.md` - Chat history and key decisions
+- `technical-decisions.md` - Why we chose X over Y  
+- `next-steps.md` - Current priorities and roadmap
+- `project-overview.md` - Project context for AIs
+- `design-system.md` - UI/UX patterns and guidelines
+- `code-style.md` - Coding conventions and standards
 - `README.md` - Knowledge base overview
+
+---
+
+## 🎨 How It Works
+
+Simple visual workflow:
+
+![Simple Workflow](./simple-workflow.png)
+
+*Diagram source: [simple-workflow.mmd](./simple-workflow.mmd)*
 
 ---
 
 ## 📖 Guides
 
 - **[Publishing Guide](./guides/PUBLISH_GUIDE.md)** - How to publish to npm
-- **[New Chat Prompt](./guides/NEW_CHAT_PROMPT.md)** - Template for starting new AI chats
+- **[New Chat Prompt](./guides/NEW_CHAT_PROMPT.md)** - Template for starting AI chats
 
 ---
 
 ## 📦 Archive
 
-Historical documents and notes:
+Historical development notes (reference only):
 
-- **[Bugfix v0.11.1](./archive/BUGFIX-v0.11.1.md)** - Bug fix notes
-- **[Summary](./archive/SUMMARY.md)** - Project summary
-- **[Wake Up README](./archive/WAKE-UP-README.md)** - Development notes
+- **[Archive Folder](./archive/)** - Historical documents and notes
 
 ---
 
-## 🎨 Diagrams
+## 🔬 Advanced Features
 
-Visual representations of the system:
+Looking for complex automation, agents, and multi-AI detection?  
+Check out the **[experimental version](https://github.com/Vaeshkar/create-ai-chat-context-experimental)** with:
 
-### Core Concepts
-
-- **[AI Knowledge Persistence](./01_ai-knowledge-persistence.png)** - How context is preserved
-- **[Knowledge Loss vs Persistence](./02_knowledge-loss-vs-persistence.png)** - Problem vs solution
-- **[AI Knowledge Base Structure](./03_ai-knowledge-base-structure.png)** - Directory structure
-
-### AICF 2.0
-
-- **[AICF Workflow](./04_aicf-workflow.png)** - How AICF 2.0 enables persistent memory
-- **[Token Efficiency](./05_token-efficiency.png)** - Markdown vs YAML vs AICF comparison
-- **[Anthropic Alignment](./06_anthropic-alignment.png)** - How AICF aligns with Anthropic's vision
-
-### Generate Diagrams
-
-```bash
-# Generate PNGs from Mermaid files
-for file in *.mmd; do mmdc -i "$file" -o "${file%.mmd}.png" -w 1920 -H 1080 -s 3; done
-```
+- Automatic conversation parsing
+- Intelligent agent system  
+- Real-time memory management
+- Multi-LLM detection
+- Advanced AICF format
 
 ---
 
-## 🔗 External Links
+## 🔗 Links
 
 - **[GitHub Repository](https://github.com/Vaeshkar/create-ai-chat-context)**
 - **[npm Package](https://www.npmjs.com/package/create-ai-chat-context)**
 - **[Issue Tracker](https://github.com/Vaeshkar/create-ai-chat-context/issues)**
-
----
-
-## 📝 Quick Links
-
-### For Users
-
-- [Getting Started](../README.md#quick-start)
-- [AICF 2.0 Guide](./aicf/AICF-GUIDE.md)
-- [Command Reference](../COMMANDS.md)
-- [Configuration](../CONFIGURATION.md)
-
-### For Contributors
-
-- [Contributing Guidelines](../CONTRIBUTING.md)
-- [Roadmap](../ROADMAP.md)
-- [Changelog](../CHANGELOG.md)
-
-### For Developers
-
-- [AICF Specification](./aicf/AICF-SPEC.md)
-- [Implementation Details](./aicf/AI-NATIVE-FORMAT-IMPLEMENTATION.md)
-- [Benchmark Report](./aicf/AICF-BENCHMARK-REPORT.md)
+- **[Experimental Version](https://github.com/Vaeshkar/create-ai-chat-context-experimental)**
 
 ---
 

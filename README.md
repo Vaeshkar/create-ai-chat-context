@@ -4,33 +4,19 @@
 ![GitHub tag](https://img.shields.io/github/v/tag/Vaeshkar/create-ai-chat-context)
 ![Downloads](https://img.shields.io/npm/dm/create-ai-chat-context.svg)
 
-> **🚧 EXPERIMENTAL FEATURES:** Looking for advanced automation, agents, and multi-AI support? Check out the [experimental version](https://github.com/Vaeshkar/create-ai-chat-context-experimental) - but use this stable version for production!
-
-> **🚀 MAJOR UPDATE v1.0.2** - Started with an **idea 3.5 days ago** (Sept 30, 8pm), already **3,300+ downloads**! *Next goal: 1,000,000 downloads!* 🎯
-
-**🔥 What's New:**
-- **AICF 3.0** with enhanced AI continuity (85% token reduction)
-- **32 comprehensive templates** for all major tech stacks  
-- **Session finish & handoff system** for seamless AI transitions
-- **Zero-cost logic agents** - No API keys required!
-
-> **AI Memory System with Zero-Cost Logic Agent Orchestrator**
-
-Create a `.ai/` knowledge base that preserves your conversation context using specialized logic agents. **Zero API costs. Lightning fast processing. Works with all major AI assistants.**
+> **✅ STABLE VERSION:** Simple, reliable AI context management for daily development. For advanced automation see [experimental version](https://github.com/Vaeshkar/create-ai-chat-context-experimental).
 
 ---
 
-## 🚨 FOR AI ASSISTANTS: READ THIS FIRST 🚨
+## 📢 Important Update: Project Split
 
-**CRITICAL: Before working on this project, read the `.ai/` knowledge base:**
+We've **simplified this version** to focus on **stability and reliability**. Here's why:
 
-1. **`.ai/project-overview.md`** - Project context and conventions
-2. **`.ai/conversation-log.md`** - Key decisions from previous chats
-3. **`.ai/technical-decisions.md`** - Why we chose X over Y
+- **Complex features** caused maintenance overhead and broke frequently
+- **Users wanted reliability** over experimental automation  
+- **Manual workflow** gives you full control over your knowledge base
 
-**Why?** This preserves institutional knowledge so you have full context immediately.
-
-**See `.ai-instructions` file for detailed instructions.**
+**Result:** This stable version has **12 focused commands** that just work, while all experimental features live in the [experimental repo](https://github.com/Vaeshkar/create-ai-chat-context-experimental).
 
 ---
 
@@ -38,11 +24,9 @@ Create a `.ai/` knowledge base that preserves your conversation context using sp
 
 When working with AI coding assistants (ChatGPT, Claude, Copilot, Cursor, Augment, Warp, etc.), every new chat session loses all context. You have to re-explain your project architecture, technical decisions, why you chose X over Y, what you accomplished in previous sessions, and known issues. This wastes significant time in every chat session.
 
-Unlike other AI context tools that focus on project planning and rules, `create-ai-chat-context` focuses on preserving conversation history and technical decisions across sessions. It works with ALL AI assistants and maintains institutional knowledge through files like `conversation-log.md`, `technical-decisions.md`, and `known-issues.md`.
-
 ## The Solution
 
-`create-ai-chat-context` creates a `.ai/` knowledge base in your project that AI assistants read at the start of each chat. **Plus optional `.aicf/` format for 85% token reduction.** Result: AI gets full context immediately. No more re-explaining.
+`create-ai-chat-context` creates a `.ai/` knowledge base in your project that AI assistants read at the start of each chat. Result: AI gets full context immediately. No more re-explaining.
 
 ### 📁 What Gets Created
 
@@ -58,7 +42,9 @@ The tool creates **7 essential documentation files** in your project:
 | **code-style.md**          | Coding standards and guidelines   |
 | **README.md**              | Overview of the knowledge base    |
 
-**Simple, focused, and effective.** No complex formats or token optimization needed.
+**Simple, focused, and effective.** No complex formats or setup needed.
+
+---
 
 ## 🎯 32 Comprehensive Templates
 
@@ -116,17 +102,9 @@ The tool creates **7 essential documentation files** in your project:
 - Deployment strategies
 - Code style standards
 
-## What's New
+---
 
-- **v1.0.2** - 🏁 **NEW: Session Management & AICF 3.0!** Complete session finish/handoff system + 32 comprehensive templates + enhanced AI continuity!
-- **v1.0.1** - 🚀 **NEW: Logic Agent Checkpoint Orchestrator!** Zero API costs, ultra-fast processing, excellent information preservation!
-- **v1.0.0** - 🎯 Simplified to 7 essential files! Focus on what works with optional AICF format.
-- **v0.14.0** - Direct .aicf/ reading - ZERO manual steps! AI reads files directly, no copy/paste!
-- **v0.13.0** - AICF 2.0 - Universal AI Memory Protocol! 88% token reduction!
-
-See [CHANGELOG.md](./CHANGELOG.md) for complete version history.
-
-## Quick Start
+## 🚀 Quick Start
 
 ```bash
 # Auto-detect project type
@@ -150,7 +128,7 @@ vim .ai/project-overview.md
 vim .ai/technical-decisions.md
 
 # Commit to Git
-git add .ai/ .ai-instructions NEW_CHAT_PROMPT.md
+git add .ai/ .ai-instructions
 git commit -m "Add AI knowledge base"
 
 # In your next AI chat, start with:
@@ -159,121 +137,117 @@ git commit -m "Add AI knowledge base"
 
 **💡 Tip:** Use `npx aic` instead of `npx create-ai-chat-context` for shorter commands!
 
-## Key Commands
+---
+
+## 🔧 Essential Commands
+
+### Core Commands (8)
 
 ```bash
-# Setup & Basic Usage
-npx aic init                    # Initialize knowledge base (7 files)
-npx aic migrate                 # Add missing .ai/ files
-npx aic migrate --to-aicf        # Convert to AICF 3.0 (85% token reduction)
-npx aic search "query"          # Find information in knowledge base
-npx aic stats                   # View analytics and token usage
+# Setup & Management
+npx aic init                    # Initialize knowledge base
+npx aic migrate                 # Add missing files to existing project
 npx aic validate                # Check knowledge base quality
+npx aic check                   # Quick health check
+
+# Daily Usage  
+npx aic search "query"          # Find information in knowledge base
+npx aic tokens                  # Show token usage breakdown
+npx aic stats                   # View knowledge base statistics
 npx aic config                  # Manage configuration
-
-# 🤖 Logic Agent Checkpoint Orchestrator (NEW!)
-npx aic checkpoint --demo       # Test with demo data (instant)
-npx aic checkpoint --file data.json --verbose  # Process checkpoint
-npx aic memory-decay --verbose  # Apply intelligent memory decay
-npm run test:checkpoint         # Run comprehensive validation
-
-# 🏁 Session Management (NEW!)
-npx aic finish --aicf           # Finish session & migrate to AICF 3.0
-npx aic monitor                 # Check token usage
-npx aic monitor --check-finish  # Check if session should end
 ```
 
-**Workflows:** 
-- **Manual:** Ask the AI to update the `.ai/` files at session end
-- **Automated:** Use `npx aic finish --aicf` for complete session wrap-up with handoff
-
-## 🤖 Checkpoint Orchestrator (NEW!)
-
-**Innovative approach:** Process conversation checkpoints with **zero API costs** using 6 specialized logic agents.
+### AI Integrations (4)
 
 ```bash
-# Process checkpoint with demo data (test the system)
-npx aic checkpoint --demo
-
-# Process real conversation checkpoint
-npx aic checkpoint --file checkpoint.json --verbose
-
-# Apply intelligent memory decay
-npx aic memory-decay --verbose
-
-# Run comprehensive test
-npm run test:checkpoint
+# AI Assistant Setup
+npx aic cursor                  # Generate .cursorrules for Cursor IDE
+npx aic warp                    # Generate Warp AI terminal instructions
+npx aic copilot                 # Generate GitHub Copilot instructions
+npx aic claude-project          # Generate Claude Projects export
 ```
 
-### Why Logic Agents Beat AI Compression
+**That's it!** Just 12 focused commands that cover everything you need.
 
-| Aspect | AI Compression | Logic Agent Orchestrator |
-|--------|---------------|-------------------------|
-| **Cost** | $0.03-0.15 per checkpoint | $0.00 forever |
-| **Speed** | 30-45 seconds | ~10 milliseconds |
-| **Information Preserved** | 60-75% | Nearly 100% |
-| **Quality** | Variable | Consistent |
-| **API Dependency** | Required | None (works offline) |
-| **Vendor Lock-in** | Yes | None (universal) |
+---
 
-**Architecture:** 6 specialized agents run in parallel:
-- **ConversationParserAgent** - Extracts conversation flow
-- **DecisionExtractorAgent** - Identifies key decisions 
-- **InsightAnalyzerAgent** - Captures breakthroughs
-- **StateTrackerAgent** - Monitors project progress
-- **FileWriterAgent** - Outputs dual formats (AICF + Markdown)
-- **MemoryDropOffAgent** - Applies intelligent decay strategy
+## 🤖 AI Integration Examples
 
-**Result:** Excellent context preservation with zero ongoing costs. See `examples/checkpoint-example.json` for sample data format.
+### Cursor IDE Integration
+```bash
+npx aic cursor
+# Creates .cursorrules file
+# Cursor automatically reads your knowledge base in every chat!
+```
 
-## 🌍 AICF: A Vision for Universal AI Memory
+### Warp AI Terminal Integration  
+```bash
+npx aic warp
+# Creates WARP_AI_INSTRUCTIONS.md with perfect copy-paste prompt
+# Use in Warp AI to get full project context immediately
+```
 
-We believe **AICF (AI Continuity Format)** represents the future of AI memory persistence. Our vision is for `.aicf` to become a **widely-adopted standard** across the tech industry.
+### GitHub Copilot Integration
+```bash
+npx aic copilot  
+# Creates copilot-instructions.md
+# Configure Copilot to understand your project conventions
+```
 
-### Why AICF Should Be Universal:
+### Claude Projects Integration
+```bash
+npx aic claude-project
+# Creates CLAUDE_PROJECT.md for easy import
+# Set up Claude Projects with your full knowledge base
+```
 
-🎯 **Built for AI, by AI** - Designed specifically for optimal AI comprehension and processing
+---
 
-⚡ **Ultra-efficient** - 85% token reduction while preserving 100% information integrity
+## 📖 Simple Manual Workflow
 
-🔗 **Relationship mapping** - CONTEXT_REFS and IMPACT_SCORE enable intelligent prioritization
+This stable version uses a **simple manual workflow** that gives you full control:
 
-🏗️ **Structured intelligence** - Schema-based format with confidence scoring and temporal tracking
+1. **Initialize** your project: `npx aic init`
+2. **Customize** the generated files for your project
+3. **Start AI chat** with: "Read .ai-instructions first"
+4. **Have productive session** with full context
+5. **Manually update** conversation-log.md with key decisions
+6. **Repeat** for next session
 
-🌐 **Universal compatibility** - Works with any AI assistant (ChatGPT, Claude, Copilot, Cursor, Warp, etc.)
+**Why manual?** 
+- ✅ **You control** what gets saved
+- ✅ **No surprises** - you know exactly what's in your knowledge base  
+- ✅ **Works reliably** - no complex automation to break
+- ✅ **Universal** - works the same with every AI assistant
 
-💰 **Zero cost** - No API dependencies, works completely offline
+---
 
-### The Future We Envision:
+## 🔬 Advanced Features Available
 
-- **IDEs** natively support `.aicf` files for AI context
-- **AI platforms** adopt AICF as standard memory format  
-- **Development teams** share project context through `.aicf` files
-- **Open source projects** include `.aicf/` directories for contributor onboarding
-- **AI tools** interoperate seamlessly using AICF format
+Looking for **complex automation**, **intelligent agents**, and **multi-AI detection**?
 
-**Join the movement!** Help us make AICF the universal standard for AI memory by:
-- ⭐ Starring this project on GitHub
-- 📢 Sharing AICF with your development teams
-- 🔧 Contributing to the AICF specification
-- 💡 Building tools that support AICF format
+Check out the **[experimental version](https://github.com/Vaeshkar/create-ai-chat-context-experimental)** with:
 
-### 🔬 Advanced Research: Multi-LLM Detection & Automation
+- 🤖 **Intelligent agent system** - Automatic conversation parsing
+- 🔄 **Real-time memory management** - Zero-API-cost processing  
+- 🎯 **Multi-LLM detection** - Automatically detects which AI you're using
+- 📊 **Advanced AICF format** - 85% token reduction with structured data
+- ⚡ **Automated workflows** - Session management and handoff systems
 
-We're actively developing an advanced system that can:
-- **Automatically detect** which LLM you're using (Warp AI, Augment, Claude Projects, ChatGPT, etc.)
-- **Extract conversation data** from different AI platforms automatically
-- **Sync context seamlessly** across all your AI tools
-- **Update knowledge base** without manual intervention
-- **Preserve institutional knowledge** across team members
+**When to use experimental:**
+- You want cutting-edge automation
+- You're comfortable with experimental features
+- You want to contribute to AI tooling research
 
-This experimental version is under active development at [create-ai-chat-context-experimental](https://github.com/Vaeshkar/create-ai-chat-context-experimental). It includes intelligent agents, real-time conversation parsing, and automated memory management.
+**When to use stable (this version):**
+- You want reliability over features
+- You prefer manual control  
+- You need something that just works
+- You're using this in production
 
-**Current approach:** Manual updates (this stable version) → **Future vision:** Fully automated, universal AI context system
+---
 
-*Together, we can solve AI context loss forever.* 🚀
-
-## Configuration
+## 🛠️ Configuration
 
 Optional configuration for customizing the tool:
 
@@ -287,16 +261,16 @@ npx aic config set preferredModel "Claude Sonnet 4.5"
 
 **Configuration is stored per-project** in `.ai/config.json`. See [CONFIGURATION.md](CONFIGURATION.md) for details.
 
-## Full Documentation
+---
+
+## 📚 Full Documentation
 
 ### Core Documentation
-
 - **[COMMANDS.md](COMMANDS.md)** - Complete command reference with examples
 - **[CONFIGURATION.md](CONFIGURATION.md)** - Detailed configuration guide
 - **[CHANGELOG.md](CHANGELOG.md)** - Version history and updates
 
 ### After Running `init`
-
 These files are created in your project:
 
 **📁 .ai/ Directory (Human-readable files):**
@@ -310,24 +284,20 @@ These files are created in your project:
 
 **📄 Root files:**
 - **`.ai-instructions`** - Instructions for AI assistants
-- **`NEW_CHAT_PROMPT.md`** - Quick reference for the one-liner prompt
 
-**🚀 Optional AICF 3.0 (run `npx aic finish --aicf`):**
-- **`.aicf/conversations.aicf`** - Ultra-compressed chat history (85% token reduction)
-- **`.aicf/decisions.aicf`** - Technical decisions in structured format
-- **`.aicf/tasks.aicf`** - Project tasks with priority scoring
-- **`.aicf/issues.aicf`** - Known issues (if any)
-- **`.aicf/index.aicf`** - Fast lookup index
-- **`.aicf/.meta`** - Project metadata
+---
 
-## Links
+## 🔗 Links
 
-- [GitHub](https://github.com/Vaeshkar/create-ai-chat-context)
-- [npm](https://www.npmjs.com/package/create-ai-chat-context)
-- [Issues](https://github.com/Vaeshkar/create-ai-chat-context/issues)
+- [GitHub Repository](https://github.com/Vaeshkar/create-ai-chat-context)
+- [npm Package](https://www.npmjs.com/package/create-ai-chat-context)
+- [Issue Tracker](https://github.com/Vaeshkar/create-ai-chat-context/issues)
 - [Full Documentation](https://github.com/Vaeshkar/create-ai-chat-context#readme)
+- [Experimental Version](https://github.com/Vaeshkar/create-ai-chat-context-experimental)
 
-## License
+---
+
+## 📄 License
 
 MIT
 
@@ -337,6 +307,4 @@ MIT
 
 ---
 
-**🎆 Incredible Journey:** From idea (Sept 30, 8pm) to 3,300+ downloads in 3.5 days! Created by a developer with 7 months of coding experience. *Next milestone: 1,000,000 downloads!* 🎯🚀
-
-Questions or issues? [Open an issue on GitHub](https://github.com/Vaeshkar/create-ai-chat-context/issues)
+**Questions?** [Open an issue on GitHub](https://github.com/Vaeshkar/create-ai-chat-context/issues)

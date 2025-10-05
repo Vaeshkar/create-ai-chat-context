@@ -1,0 +1,37 @@
+graph TD
+    A[👨‍💻 Developer starts project] --> B[📁 Run: npx aic init]
+    B --> C[🎯 Choose template<br/>nextjs, python, rust, etc.]
+    C --> D[✅ .ai/ knowledge base created<br/>7 essential files]
+    
+    D --> E[🤖 Start AI coding session]
+    E --> F[📖 AI reads .ai-instructions]
+    F --> G[🧠 AI loads full context<br/>from knowledge base]
+    
+    G --> H[💻 Productive coding session<br/>with full context]
+    H --> I[📝 Developer manually updates<br/>conversation-log.md]
+    
+    I --> J{More work?}
+    J -->|Yes| E
+    J -->|No| K[🎉 Done!]
+    
+    subgraph "🔧 Maintenance Commands"
+        L[npx aic check<br/>Health check]
+        M[npx aic validate<br/>Quality check]
+        N[npx aic search<br/>Find info]
+        O[npx aic tokens<br/>Usage stats]
+    end
+    
+    subgraph "🤖 AI Integrations"
+        P[npx aic cursor<br/>Cursor IDE setup]
+        Q[npx aic warp<br/>Warp terminal setup]
+        R[npx aic copilot<br/>GitHub Copilot setup]
+        S[npx aic claude-project<br/>Claude Projects export]
+    end
+    
+    D --> L
+    D --> P
+    
+    style A fill:#e1f5fe
+    style D fill:#e8f5e8
+    style H fill:#fff3e0
+    style K fill:#e8f5e8
