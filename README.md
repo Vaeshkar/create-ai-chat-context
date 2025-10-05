@@ -282,6 +282,15 @@ These files are created in your project:
 - **`.ai/design-system.md`** - Design patterns and conventions
 - **`.ai/code-style.md`** - Coding standards and guidelines
 
+**📁 .aicf/ Directory (AI-optimized files):**
+- **`.aicf/conversations.aicf`** - Structured conversation history
+- **`.aicf/decisions.aicf`** - Technical decisions in structured format
+- **`.aicf/tasks.aicf`** - Project tasks and priorities
+- **`.aicf/issues.aicf`** - Known issues and solutions
+- **`.aicf/technical-context.aicf`** - Technical context and architecture
+- **`.aicf/README.md`** - AICF format documentation
+- **And more...** - Additional context files
+
 **📄 Root files:**
 - **`.ai-instructions`** - Instructions for AI assistants
 

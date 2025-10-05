@@ -235,3 +235,61 @@ COMMAND_END:31123:2025-10-05T11:02:54Z:0
 COMMAND_START:31123:2025-10-05T11:03:04Z:cd /Users/leeuwen/Programming/create-ai-chat-context && rm README-old.md COMMANDS-old.md && echo "Cleaned up backup files"
 COMMAND_END:31123:2025-10-05T11:03:04Z:0
 COMMAND_START:31123:2025-10-05T11:03:13Z:cd /Users/leeuwen/Programming/create-ai-chat-context && git add .
+COMMAND_END:31123:2025-10-05T11:03:13Z:0
+COMMAND_START:31123:2025-10-05T11:03:28Z:cd /Users/leeuwen/Programming/create-ai-chat-context && git commit -m "docs: Complete documentation rewrite for stable version
+
+MAJOR DOCUMENTATION UPDATE:
+
+✅ README.md - Complete rewrite
+- Explains project split and why we simplified
+- Focuses on 12 stable commands vs experimental features  
+- Clear manual workflow explanation
+- 32 templates coverage
+- 4 AI integrations (Cursor, Warp, Copilot, Claude)
+
+✅ COMMANDS.md - Complete rewrite  
+- Removed all references to 20+ removed commands
+- Documents only the 12 stable commands that exist
+- Detailed examples and workflows
+- Clear categorization: Core, Daily Usage, AI Integrations
+
+✅ Removed outdated files
+- CHECKPOINT_ORCHESTRATOR.md (feature doesn't exist)
+- All backup files cleaned up
+
+✅ Project messaging aligned
+- Explains the split between stable vs experimental
+- Users understand this is the reliable version
+- Clear path to experimental repo for advanced features
+
+Before: Confusing docs about removed features
+After: Clean, accurate docs matching actual functionality"
+COMMAND_END:31123:2025-10-05T11:03:28Z:0
+COMMAND_START:31123:2025-10-05T11:03:37Z:cd /Users/leeuwen/Programming/create-ai-chat-context && git push origin main
+COMMAND_END:31123:2025-10-05T11:03:39Z:0
+COMMAND_START:31123:2025-10-05T11:13:40Z:cd /Users/leeuwen/Programming/create-ai-chat-context && ls .aicf/
+COMMAND_END:31123:2025-10-05T11:13:40Z:0
+COMMAND_START:31123:2025-10-05T11:15:13Z:cd /Users/leeuwen/Programming/create-ai-chat-context && mv GITHUB_README.md GITHUB_README-old.md && mv GITHUB_README-new.md GITHUB_README.md
+COMMAND_END:31123:2025-10-05T11:15:13Z:0
+COMMAND_START:31123:2025-10-05T11:15:22Z:cd /Users/leeuwen/Programming/create-ai-chat-context && rm GITHUB_README-old.md
+COMMAND_END:31123:2025-10-05T11:15:22Z:0
+COMMAND_START:31123:2025-10-05T11:15:37Z:cd /Users/leeuwen/Programming/create-ai-chat-context && git add . && git commit -m "docs: Final documentation updates - add .aicf info and stable badge
+
+✅ README.md updated:
+- Added missing .aicf/ directory information  
+- Documents AI-optimized files that get created
+- Shows both .ai/ and .aicf/ directories properly
+
+✅ GITHUB_README.md complete rewrite:
+- Added stable version badge
+- Focused on 12-command stable version
+- Removed all outdated AICF 2.0 complex features
+- Clear project split explanation
+- Before/after usage examples
+- Centered layouts for better GitHub display
+
+✅ Documentation now 100% accurate:
+- Matches actual functionality
+- No references to removed features  
+- Clear stable vs experimental messaging
+- Professional presentation for GitHub"
