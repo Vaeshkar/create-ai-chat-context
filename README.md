@@ -1,7 +1,7 @@
 # create-ai-chat-context
 
-![npm version](https://img.shields.io/badge/npm-v1.0.2-red?logo=npm)
-![GitHub tag](https://img.shields.io/badge/tag-v1.0.2-blue?logo=github)
+![npm version](https://img.shields.io/npm/v/create-ai-chat-context)
+![GitHub tag](https://img.shields.io/github/v/tag/Vaeshkar/create-ai-chat-context)
 ![Downloads](https://img.shields.io/npm/dm/create-ai-chat-context.svg)
 ![Commands](https://img.shields.io/badge/Commands-14-blue)
 ![AI Integrations](https://img.shields.io/badge/AI%20Integrations-6-green)
