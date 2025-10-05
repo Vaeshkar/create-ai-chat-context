@@ -4,6 +4,104 @@ Document WHY you made specific technical choices.
 
 ---
 
+## Repository Split: Stable (v1.x) vs Experimental (v2.0.0)
+
+**Date:** 2025-10-05
+**Status:** ✅ Decided (Chat #19)
+
+### Decision
+
+Split project into two repositories:
+- **Stable repo (this):** v1.0.5+ - Production-ready, 4,100+ users
+- **Experimental repo:** v2.0.0+ - Advanced features, testing ground
+
+### Rationale
+
+**The core problem:**
+- **4,100+ active users** depend on this package for daily work
+- **Can't push unstable updates** to production users for testing
+- **Innovation requires experimentation** but stability is critical
+
+**The solution:**
+- Maintain stable v1.x line here with only proven, tested features
+- Develop v2.0.0 experimental version in separate repo
+- Users choose: stability (v1.x) or cutting-edge (v2.0.0)
+
+**User base context:**
+- 4,100+ downloads/users actively using the tool
+- Used in production environments
+- Breaking changes or bugs would affect many developers
+- Stability > features for this user base
+
+### Implementation
+
+**Stable repo (this):**
+- Version: v1.0.5 (current)
+- Focus: Reliability, stability, proven features only
+- Commands: 14 focused, well-tested commands
+- Release cycle: Conservative, thorough testing before publish
+- Breaking changes: Avoided; maintain backward compatibility
+
+**Experimental repo:**
+- Version: v2.0.0
+- Focus: Innovation, automation, advanced features
+- Features: Multi-LLM detection, intelligent agents, automatic compression
+- Release cycle: Rapid iteration, frequent updates
+- Breaking changes: Acceptable; users opt-in knowing risks
+
+### Alternatives Considered
+
+**Option 1: Single repo with feature flags**
+- **Pros:** Unified codebase, easier to maintain
+- **Cons:** Complex flag management, still risks breaking stable users
+- **Rejected:** Too risky for production users
+
+**Option 2: Beta/alpha tags on same package**
+- **Pros:** Single npm package, users choose via version
+- **Cons:** Confusion about which version to use, accidental installs of beta
+- **Rejected:** Too easy for users to accidentally get unstable version
+
+**Option 3: Separate repos (CHOSEN)**
+- **Pros:** Clear separation, safe testing ground, no risk to production
+- **Cons:** Duplicate maintenance, need to sync proven features back
+- **Chosen:** Best way to protect 4.1k users while innovating
+
+### Trade-offs
+
+**Pros:**
+- ✅ Production users protected from breaking changes
+- ✅ Free to experiment in v2.0.0 without consequences
+- ✅ Clear messaging: "stable" vs "experimental"
+- ✅ Users consciously opt-in to experimental features
+- ✅ Can iterate rapidly on v2.0.0 without affecting v1.x users
+
+**Cons:**
+- ❌ Maintain two codebases
+- ❌ Need to port proven v2.0.0 features back to v1.x
+- ❌ Marketing/documentation complexity (two versions to explain)
+
+### Impact
+
+**For stable users (4,100+):**
+- Guaranteed stability and reliability
+- No breaking changes without major version bump
+- Proven features only
+- Safe for production use
+
+**For experimental users:**
+- Access to cutting-edge features
+- Faster iteration and updates
+- Can provide feedback on new features
+- Understand they're opting into experimental software
+
+**For the project:**
+- Safe space to innovate without risk
+- Clear value proposition for each version
+- Build trust with production users
+- Attract early adopters for v2.0.0 testing
+
+---
+
 ## Stable Version Policy: Recommend v1.0.2; keep v1.1.0 published
 
 **Date:** 2025-10-05

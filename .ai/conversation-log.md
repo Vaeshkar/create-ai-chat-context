@@ -40,6 +40,70 @@ Track key decisions and progress from AI chat sessions.
 
 ---
 
+### Chat #19 - v1.0.5 Stable Release + Repo Split Strategy
+
+**Date:** 2025-10-05
+**Type:** RELEASE + STRATEGY
+**Status:** SHIPPED ✅
+
+**Key Accomplishments:**
+
+- 🚀 **Published v1.0.5 to npm** - Stable version for 4,100+ users
+- 📝 **Synced npm README** - Updated npm package page to match GitHub (removed AI Integrations badge)
+- 🎯 **Clarified repo split strategy** - Stable (v1.x) vs Experimental (v2.0.0)
+- 🧹 **Fixed package.json warnings** - Normalized repository.url, cleaned bin entries
+- 🛠️ **Updated badges** - Dynamic badges now show v1.0.5 as latest on both npm and GitHub
+- ✅ **Removed stale zsh hooks** - Fixed shell errors from .meta/ai-activity-log
+
+**Strategic Context:**
+
+**The Core Mission:**
+- Building **continuous memory for AI assistants** (ChatGPT, Claude, Cursor, Warp, Copilot, etc.)
+- **The Problem:** Every new chat session = context loss. AI starts fresh, user re-explains everything.
+- **The Solution:** `.ai/` and `.aicf/` knowledge base that AI reads at start of each session.
+- **The Goal:** Next AI continues seamlessly without asking "what did we discuss?"
+
+**Repo Split Rationale:**
+- **4,100+ active users** depend on stability
+- **Can't commit unstable updates** and test on production users
+- **Solution:** Split into two repos:
+  - **Stable (this repo):** v1.0.5 - Proven, reliable, 14 focused commands
+  - **Experimental:** v2.0.0 - Advanced automation, multi-LLM detection, intelligent agents
+- **Why split:** Innovation requires safe testing ground without breaking production
+
+**Files Modified:**
+
+- `package.json` → v1.0.5 (via `npm version patch`)
+- `README.md` → removed AI Integrations badge, switched to GitHub release badge
+- `~/.zshrc` → removed stale precmd/preexec hooks
+
+**Technical Details:**
+
+- Used `npm version patch` to auto-increment + tag
+- Set npm dist-tag `latest` → v1.0.5
+- Set GitHub release v1.0.2 as "Latest" initially (later updated to v1.0.5)
+- npm publish updated the npm README automatically
+
+**Context Loss Issue:**
+
+This session started with **memory loss from Chat #18** - the previous AI session's decisions weren't written to .ai/.aicf files. This is the exact problem the tool solves. Ironic but educational.
+
+**Outcome:**
+
+- ✅ v1.0.5 live on npm with current README
+- ✅ 4.1k users protected from experimental features
+- ✅ Clear strategy: stable v1.x here, experimental v2.0.0 in separate repo
+- ✅ Dynamic badges work correctly
+- ✅ Memory preserved in .ai/.aicf for next session
+
+**Next Steps:**
+
+- Continue maintaining stable v1.x line with proven features only
+- Experiment freely in v2.0.0 repo without breaking production users
+- Monitor user feedback from 4.1k+ users
+
+---
+
 ### Chat #18 - Revert docs to v1.0.2 stable; clarify stable vs latest
 
 **Date:** 2025-10-05

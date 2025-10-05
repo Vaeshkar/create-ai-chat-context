@@ -10,4 +10,5 @@ D#|TIMESTAMP|TITLE|DECISION|RATIONALE|IMPACT|STATUS
 20251001T120000Z|Comprehensive Documentation Files|Create separate COMMANDS.md and CONFIGURATION.md files instead of putting everything in README.|||IMPLEMENTED
 [Date]T120000Z|[Decision Name]|[What you decided]|[Why]|``` **Last Updated:** 2025-10-01|ACTIVE
 20251005T124646Z|Stable Version Policy (v1.0.2 recommended)|Docs/badges present v1.0.2 as stable; keep v1.1.0 published|Stability-first; clarity for users; v1.1.0 not yet recommended|HIGH|IMPLEMENTED
+20251005T130924Z|Repository Split (Stable v1.x vs Experimental v2.0.0)|Split into 2 repos: stable (v1.0.5+, 4.1k users) and experimental (v2.0.0, advanced features)|4,100+ users depend on stability; can't test on production; innovation needs safe space|CRITICAL|IMPLEMENTED
 
