@@ -258,6 +258,19 @@ We believe **AICF (AI Continuity Format)** represents the future of AI memory pe
 - 🔧 Contributing to the AICF specification
 - 💡 Building tools that support AICF format
 
+### 🔬 Advanced Research: Multi-LLM Detection & Automation
+
+We're actively developing an advanced system that can:
+- **Automatically detect** which LLM you're using (Warp AI, Augment, Claude Projects, ChatGPT, etc.)
+- **Extract conversation data** from different AI platforms automatically
+- **Sync context seamlessly** across all your AI tools
+- **Update knowledge base** without manual intervention
+- **Preserve institutional knowledge** across team members
+
+This experimental version is under active development at [create-ai-chat-context-experimental](https://github.com/Vaeshkar/create-ai-chat-context-experimental). It includes intelligent agents, real-time conversation parsing, and automated memory management.
+
+**Current approach:** Manual updates (this stable version) → **Future vision:** Fully automated, universal AI context system
+
 *Together, we can solve AI context loss forever.* 🚀
 
 ## Configuration
