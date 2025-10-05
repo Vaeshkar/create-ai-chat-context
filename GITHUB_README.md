@@ -6,6 +6,9 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Downloads](https://img.shields.io/npm/dm/create-ai-chat-context.svg)](https://www.npmjs.com/package/create-ai-chat-context)
 [![Stable](https://img.shields.io/badge/version-stable-green.svg)](https://github.com/Vaeshkar/create-ai-chat-context)
+[![Commands](https://img.shields.io/badge/Commands-14-blue.svg)](https://github.com/Vaeshkar/create-ai-chat-context/blob/main/COMMANDS.md)
+[![AI Integrations](https://img.shields.io/badge/AI%20Integrations-6-brightgreen.svg)](#-ai-integrations)
+[![Templates](https://img.shields.io/badge/Templates-32-orange.svg)](#-32-comprehensive-templates)
 
 ### **Simple AI Memory System for Daily Development**
 
