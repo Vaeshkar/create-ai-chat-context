@@ -1,6 +1,6 @@
 {
   "name": "create-ai-chat-context",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Stable AI memory system for projects - Creates .ai/ and .aicf/ knowledge base with 14 commands and 6 AI integrations",
   "main": "src/index.js",
   "bin": {
