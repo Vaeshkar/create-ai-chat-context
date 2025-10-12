@@ -14,11 +14,29 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Team collaboration features
 - Analytics dashboard
 
+## [1.0.7] - 2025-10-12
+
+### Fixed
+
+- **🐛 Critical Bug Fix**: Fixed missing `.aicf/` folder creation in `aic init` command
+  - **Issue**: v1.0.2 npm package was missing `templates/aicf/` files, causing `aic init` to only create `.ai/` folder
+  - **Impact**: Users couldn't access the dual-format system (AI-optimized `.aicf/` files)
+  - **Resolution**: Verified all template files are properly included in npm package
+  - **Verification**: Both `.ai/` and `.aicf/` folders now created correctly with all template files
+
+### Technical Details
+
+- Confirmed `templates/aicf/` folder exists in git repository
+- Verified `package.json` "files" field includes `"templates/"` directory
+- Tested `npm pack --dry-run` shows all `.aicf` template files included
+- Added comprehensive testing for both local and published package versions
+
 ## [1.0.2] - 2025-10-03
 
 ### Added
 
 - **🏁 Session Management System**
+
   - `npx aic finish` - Complete session wrap-up with git integration
   - `npx aic finish --aicf` - Finish session and migrate to AICF 3.0
   - `npx aic monitor` - Token usage monitoring and recommendations
@@ -29,6 +47,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Meaningful commit messages with session summaries
 
 - **🚀 AICF 3.0 Enhanced AI Continuity Format**
+
   - Enhanced token lengths: TOPIC (60→80), OUTCOME (80→120), DECISION (100→120)
   - New AI continuity fields: CONTEXT_REFS, CONFIDENCE, IMPACT_SCORE
   - Intelligent scoring algorithms for priority filtering
@@ -36,6 +55,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Better relationship mapping between conversations, decisions, tasks
 
 - **🎯 32 Comprehensive Templates**
+
   - JavaScript/TypeScript: nextjs, react, vue, angular, node
   - Python: python, django, fastapi, flask
   - Systems Programming: rust, go, cpp
