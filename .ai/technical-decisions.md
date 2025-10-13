@@ -4,6 +4,62 @@ Document WHY you made specific technical choices.
 
 ---
 
+## v2.0.1 Patch Release - CLI Version Detection Fix
+
+**Date:** 2025-10-13
+**Status:** ✅ Shipped
+
+### Decision
+
+Publish immediate patch release (v2.0.1) to fix CLI version detection path issue discovered in v2.0.0.
+
+### Problem
+
+After publishing v2.0.0, the CLI `--version` command was broken. The code was looking for package.json at the wrong path:
+
+- Built file location: `dist/esm/cli.js`
+- Old path: `join(__dirname, '..', 'package.json')` → `dist/package.json` ❌
+- Correct path: `join(__dirname, '..', '..', 'package.json')` → `package.json` ✅
+
+### Solution
+
+1. **Fixed the path resolution** in `src/cli.ts`
+2. **Rebuilt the package** with `npm run build`
+3. **Bumped version** to 2.0.1 using `npm version patch`
+4. **Published immediately** with `npm publish`
+5. **Tagged and pushed** to GitHub
+
+### Rationale
+
+**Why immediate patch release:**
+
+- Version detection is a core CLI feature
+- Users expect `--version` to work correctly
+- Quick response shows quality and responsiveness
+- Follows semantic versioning best practices (patch = bugfix)
+
+**Why not wait:**
+
+- ❌ Waiting for next feature release is too slow for critical bugs
+- ❌ Republishing v2.0.0 breaks semantic versioning
+- ✅ Patch release is the correct approach
+
+### Result
+
+- v2.0.1 published successfully to npm
+- CLI version detection works correctly
+- Git tagged (v2.0.0, v2.0.1) and pushed to GitHub
+- Package verified on npm registry
+- Issue documented in known-issues.md
+
+### Lessons Learned
+
+1. **Test CLI commands after build changes** - Especially path-dependent features
+2. **Verify built artifacts** - Don't assume paths work the same in source vs built
+3. **Quick patches are good** - Don't be afraid to ship small fixes immediately
+
+---
+
 ## Repository Split: Stable (v1.x) vs Experimental (v2.0.0)
 
 **Date:** 2025-10-05
@@ -12,22 +68,26 @@ Document WHY you made specific technical choices.
 ### Decision
 
 Split project into two repositories:
+
 - **Stable repo (this):** v1.0.5+ - Production-ready, 4,100+ users
 - **Experimental repo:** v2.0.0+ - Advanced features, testing ground
 
 ### Rationale
 
 **The core problem:**
+
 - **4,100+ active users** depend on this package for daily work
 - **Can't push unstable updates** to production users for testing
 - **Innovation requires experimentation** but stability is critical
 
 **The solution:**
+
 - Maintain stable v1.x line here with only proven, tested features
 - Develop v2.0.0 experimental version in separate repo
 - Users choose: stability (v1.x) or cutting-edge (v2.0.0)
 
 **User base context:**
+
 - 4,100+ downloads/users actively using the tool
 - Used in production environments
 - Breaking changes or bugs would affect many developers
@@ -36,6 +96,7 @@ Split project into two repositories:
 ### Implementation
 
 **Stable repo (this):**
+
 - Version: v1.0.5 (current)
 - Focus: Reliability, stability, proven features only
 - Commands: 14 focused, well-tested commands
@@ -43,6 +104,7 @@ Split project into two repositories:
 - Breaking changes: Avoided; maintain backward compatibility
 
 **Experimental repo:**
+
 - Version: v2.0.0
 - Focus: Innovation, automation, advanced features
 - Features: Multi-LLM detection, intelligent agents, automatic compression
@@ -52,16 +114,19 @@ Split project into two repositories:
 ### Alternatives Considered
 
 **Option 1: Single repo with feature flags**
+
 - **Pros:** Unified codebase, easier to maintain
 - **Cons:** Complex flag management, still risks breaking stable users
 - **Rejected:** Too risky for production users
 
 **Option 2: Beta/alpha tags on same package**
+
 - **Pros:** Single npm package, users choose via version
 - **Cons:** Confusion about which version to use, accidental installs of beta
 - **Rejected:** Too easy for users to accidentally get unstable version
 
 **Option 3: Separate repos (CHOSEN)**
+
 - **Pros:** Clear separation, safe testing ground, no risk to production
 - **Cons:** Duplicate maintenance, need to sync proven features back
 - **Chosen:** Best way to protect 4.1k users while innovating
@@ -69,6 +134,7 @@ Split project into two repositories:
 ### Trade-offs
 
 **Pros:**
+
 - ✅ Production users protected from breaking changes
 - ✅ Free to experiment in v2.0.0 without consequences
 - ✅ Clear messaging: "stable" vs "experimental"
@@ -76,6 +142,7 @@ Split project into two repositories:
 - ✅ Can iterate rapidly on v2.0.0 without affecting v1.x users
 
 **Cons:**
+
 - ❌ Maintain two codebases
 - ❌ Need to port proven v2.0.0 features back to v1.x
 - ❌ Marketing/documentation complexity (two versions to explain)
@@ -83,18 +150,21 @@ Split project into two repositories:
 ### Impact
 
 **For stable users (4,100+):**
+
 - Guaranteed stability and reliability
 - No breaking changes without major version bump
 - Proven features only
 - Safe for production use
 
 **For experimental users:**
+
 - Access to cutting-edge features
 - Faster iteration and updates
 - Can provide feedback on new features
 - Understand they're opting into experimental software
 
 **For the project:**
+
 - Safe space to innovate without risk
 - Clear value proposition for each version
 - Build trust with production users

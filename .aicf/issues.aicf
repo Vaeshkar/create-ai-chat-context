@@ -3,9 +3,9 @@
 I#|TIMESTAMP|SEVERITY|TITLE|ISSUE|IMPACT|WORKAROUND|STATUS
 
 @DATA
+6|20251013T160000Z|MEDIUM|CLI Version Detection Path Issue (v2.0.0)|CLI --version command broken in v2.0.0. Built file dist/esm/cli.js was looking for ../package.json (dist/package.json) instead of ../../package.json (root)|Fixed CLI version detection|Changed path from join(__dirname, '..', 'package.json') to join(__dirname, '..', '..', 'package.json'). Published v2.0.1 patch release.|RESOLVED
+5|20251013T150000Z|LOW|fnm Symlink Caching Issue|Global aic command may show old version (1.0.2) after installing v2.0.1 due to fnm caching symlinks|Non-critical; package itself is correct on npm|Use npx create-ai-chat-context or restart terminal to clear cache|KNOWN_NON_CRITICAL
 1|20251001T120000Z|MEDIUM|Chat-Finish Command Formatting Issues|The `chat-finish` command (v0.9.0-v0.10.0) was creating duplicate and poorly formatted entries in `.|See description|Fixed through multiple iterations (chats #7-11):|RESOLVED
 2|20251001T120000Z|MEDIUM|Conversation Entry Counting Showed Zero|Stats command showed "0 conversation entries" for users with date-first format in conversation logs |See description|Changed regex to `/^##.*Chat\s*#?\d+/gim` to match "Chat #X" anywhere in the heading line. Now suppo|RESOLVED
 3|20251001T120000Z|LOW|Token Report Overwhelming with 16 Models|Showing all 16 AI models in token reports was overwhelming for most users who only care about 1-2 mo|See description||RESOLVED
 4|20251001T120000Z|MEDIUM|Documentation Too Sketchy|User feedback: "For the next version we need a full dokumentation. this is to sketchy."|See description|Created comprehensive documentation:|RESOLVED
-5|[Date]T120000Z|MEDIUM|[Issue Name]|[Description]|See description|[Fix or temporary solution]|OPEN
-

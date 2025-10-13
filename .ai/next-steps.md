@@ -6,8 +6,12 @@ Roadmap and priorities for your project.
 
 ## ✅ Recently Completed (Last 2 Weeks)
 
-**2025-10-13 - v2.0.0 COMPLETE! 🎉**
+**2025-10-13 - v2.0.1 SHIPPED TO NPM! 🎉🚀**
 
+- ✅ **v2.0.0 Published** - Successfully released to npm
+- ✅ **v2.0.1 Published** - Fixed CLI version detection path issue
+- ✅ **Git Tagged** - Both v2.0.0 and v2.0.1 tagged and pushed to GitHub
+- ✅ **Package Verified** - Live on npm registry, ready for users
 - ✅ **Phase 4: CLI Complete** - All 4 commands wired up and tested
 - ✅ **Build System** - Dual ESM + CJS build working
 - ✅ **Documentation Organized** - Clean structure in docs/
@@ -40,14 +44,15 @@ Roadmap and priorities for your project.
 
 ## 🎯 Immediate Next Steps
 
-### 1. Release v2.0.0 to npm
+### 1. Post-Release Tasks
 
-- [ ] Update README.md with v2.0.0 usage examples
-- [ ] Create CHANGELOG.md documenting all changes
-- [ ] Test with `npm link` locally
-- [ ] Publish to npm with `npm publish`
-- [ ] Tag release on GitHub
-- [ ] Announce v2.0.0
+- [x] ~~Release v2.0.0 to npm~~ ✅ DONE
+- [x] ~~Fix CLI version detection~~ ✅ DONE (v2.0.1)
+- [x] ~~Tag releases on GitHub~~ ✅ DONE
+- [ ] Create GitHub Release notes (optional)
+- [ ] Update CHANGELOG.md with v2.0.1 entry
+- [ ] Test package in fresh project
+- [ ] Monitor user feedback
 
 ### 2. Documentation Polish (Optional)
 
@@ -66,13 +71,15 @@ Roadmap and priorities for your project.
 
 ## 📊 Current Status
 
-**v2.0.0 is COMPLETE and READY FOR RELEASE!**
+**v2.0.1 is LIVE ON NPM! 🚀**
 
+- ✅ Published to npm registry
 - ✅ All 4 commands working
 - ✅ 120 tests passing
 - ✅ Build system configured
 - ✅ Documentation organized
 - ✅ Code archived
+- ✅ Git tagged (v2.0.0, v2.0.1)
 
 **Philosophy:** "Small things, with love" 🪵
 

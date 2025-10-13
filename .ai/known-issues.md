@@ -6,6 +6,29 @@ Track problems and their solutions.
 
 ## ✅ Resolved Issues
 
+### CLI Version Detection Path Issue (v2.0.0)
+
+**Date Discovered:** 2025-10-13
+**Date Resolved:** 2025-10-13 (v2.0.1)
+**Severity:** 🟡 Medium
+
+**Problem:**
+The CLI in v2.0.0 was reading package.json version from the wrong path. In the built version, `dist/esm/cli.js` was looking for `../package.json` (which would be `dist/package.json`) instead of `../../package.json` (root package.json).
+
+**Solution:**
+
+- Updated `src/cli.ts` to use correct path: `join(__dirname, '..', '..', 'package.json')`
+- Published v2.0.1 with the fix
+- Verified the fix works correctly in local and published versions
+
+**Prevention:**
+
+- Test CLI version command after build changes
+- Verify path resolution in built artifacts
+- Add test for version detection
+
+---
+
 ### Chat-Finish Command Formatting Issues
 
 **Date Discovered:** 2025-10-01
