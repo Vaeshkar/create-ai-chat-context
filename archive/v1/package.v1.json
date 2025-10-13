@@ -1,0 +1,70 @@
+{
+  "name": "create-ai-chat-context",
+  "version": "1.0.7",
+  "description": "Stable AI memory system for projects - Creates .ai/ and .aicf/ knowledge base with 14 commands and 6 AI integrations",
+  "main": "src/index.js",
+  "bin": {
+    "create-ai-chat-context": "./bin/cli.js",
+    "aic": "./bin/cli.js"
+  },
+  "scripts": {
+    "test": "echo \"No tests yet\" && exit 0",
+    "test:checkpoint": "node test-checkpoint.js",
+    "checkpoint:demo": "node bin/cli.js checkpoint --demo --verbose",
+    "checkpoint:example": "node bin/cli.js checkpoint --file examples/checkpoint-example.json --verbose --show-memory",
+    "memory:decay": "node bin/cli.js memory-decay --verbose",
+    "generate:templates": "node scripts/generate-templates.js",
+    "lint": "echo \"No linting yet\" && exit 0"
+  },
+  "keywords": [
+    "ai",
+    "ai-context",
+    "ai-chat",
+    "ai-memory",
+    "aicf",
+    "chat-history",
+    "conversation-history",
+    "knowledge-base",
+    "documentation",
+    "ai-assistant",
+    "copilot",
+    "cursor",
+    "warp",
+    "gemini",
+    "chatgpt",
+    "claude",
+    "stable",
+    "templates",
+    "cli",
+    "developer-tools",
+    "context-preservation",
+    "session-memory"
+  ],
+  "author": "Dennis van Leeuwen (AI Orchestrator Engineer)",
+  "license": "AGPL-3.0-or-later",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vaeshkar/create-ai-chat-context.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Vaeshkar/create-ai-chat-context/issues"
+  },
+  "homepage": "https://github.com/Vaeshkar/create-ai-chat-context#readme",
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "dependencies": {
+    "commander": "^11.1.0",
+    "chalk": "^4.1.2",
+    "ora": "^5.4.1",
+    "fs-extra": "^11.1.1"
+  },
+  "devDependencies": {},
+  "files": [
+    "bin/",
+    "src/",
+    "templates/",
+    "README.md",
+    "LICENSE"
+  ]
+}

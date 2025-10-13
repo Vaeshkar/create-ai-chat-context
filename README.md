@@ -1,38 +1,41 @@
 # create-ai-chat-context
 
-![npm version](https://img.shields.io/npm/v/create-ai-chat-context)
-![GitHub release](https://img.shields.io/github/v/release/Vaeshkar/create-ai-chat-context)
-![Downloads](https://img.shields.io/npm/dm/create-ai-chat-context.svg)
-![Commands](https://img.shields.io/badge/Commands-14-blue)
-![Templates](https://img.shields.io/badge/Templates-32-orange)
+[![npm version](https://img.shields.io/npm/v/create-ai-chat-context)](https://www.npmjs.com/package/create-ai-chat-context)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.7+-blue.svg)](https://www.typescriptlang.org/)
+[![Tests](https://img.shields.io/badge/tests-120%20passing-brightgreen.svg)](https://github.com/Vaeshkar/create-ai-chat-context)
 
-> **✅ STABLE VERSION:** Simple, reliable AI context management for daily development. For advanced automation see [experimental version](https://github.com/Vaeshkar/create-ai-chat-context-experimental).
+> **AI memory system for your projects** - Never lose context between AI chat sessions again.
 
----
-
-## 📢 Important Update: Project Split
-
-We've **simplified this version** to focus on **stability and reliability**. Here's why:
-
-- **Complex features** caused maintenance overhead and broke frequently
-- **Users wanted reliability** over experimental automation  
-- **Manual workflow** gives you full control over your knowledge base
-
-**Result:** This stable version has **14 focused commands** that just work, while all experimental features live in the [experimental repo](https://github.com/Vaeshkar/create-ai-chat-context-experimental).
+Stop wasting 30+ minutes re-explaining your project to AI assistants every chat session.
 
 ---
 
 ## The Problem
 
-When working with AI coding assistants (ChatGPT, Claude, Copilot, Cursor, Augment, Warp, etc.), every new chat session loses all context. You have to re-explain your project architecture, technical decisions, why you chose X over Y, what you accomplished in previous sessions, and known issues. This wastes significant time in every chat session.
+When working with AI coding assistants (ChatGPT, Claude, Copilot, Cursor, Augment, etc.), **every new chat session loses all context**.
+
+You have to re-explain:
+
+- Your project architecture
+- Technical decisions you made
+- Why you chose X over Y
+- What you accomplished in previous sessions
+- Known issues and solutions
+
+**This wastes significant time in every chat session.** 😤
+
+---
 
 ## The Solution
 
-`create-ai-chat-context` creates a `.ai/` knowledge base in your project that AI assistants read at the start of each chat. Result: AI gets full context immediately. No more re-explaining.
+`create-ai-chat-context` creates a `.ai/` knowledge base in your project that AI assistants read at the start of each chat.
+
+**Result:** AI gets full context immediately. No more re-explaining!
 
 ### 📁 What Gets Created
 
-The tool creates **7 essential documentation files** in your project:
+**7 essential markdown files** in `.ai/` directory:
 
 | File                       | Purpose                           |
 | -------------------------- | --------------------------------- |
@@ -44,273 +47,198 @@ The tool creates **7 essential documentation files** in your project:
 | **code-style.md**          | Coding standards and guidelines   |
 | **README.md**              | Overview of the knowledge base    |
 
-**Simple, focused, and effective.** No complex formats or setup needed.
+**Plus:**
 
----
+- `.aicf/` directory - AI-optimized compressed format
+- `.ai-instructions` - Instructions for AI assistants
+- `NEW_CHAT_PROMPT.md` - Template for starting new chats
 
-## 🎯 32 Comprehensive Templates
+### What is `.aicf/`?
 
-**Mind-blowing coverage:** We support virtually every major programming language, framework, and development category!
+The `.aicf/` directory contains AI-optimized versions of your knowledge base:
 
-### JavaScript/TypeScript Ecosystem
-- **nextjs** - Next.js, React, TypeScript projects
-- **react** - React, Create React App, Vite projects  
-- **vue** - Vue.js, Nuxt.js, Vite projects
-- **angular** - Angular projects with TypeScript
-- **node** - Node.js backend projects, Express, NestJS
+- **Structured format** - Pipe-delimited sections for faster parsing
+- **Compressed** - 80 lines instead of 300 lines (same information)
+- **AI-optimized** - Designed for AI assistants to parse quickly
+- **Auto-generated** - Created automatically by `aic init`
 
-### Python Ecosystem
-- **python** - General Python projects
-- **django** - Django web framework projects
-- **fastapi** - FastAPI backend projects  
-- **flask** - Flask web framework projects
-
-### Systems Programming
-- **rust** - Rust systems programming projects
-- **go** - Go backend and systems projects
-- **cpp** - C++ systems and application projects
-
-### Enterprise/JVM
-- **java** - Java projects, Spring Boot, Maven/Gradle
-- **spring** - Spring Boot, Spring Framework projects
-- **kotlin** - Kotlin projects, Android, multiplatform
-
-### .NET Ecosystem
-- **csharp** - C# .NET projects
-- **dotnet** - .NET Core, ASP.NET Core projects
-
-### Web Technologies
-- **php** - PHP projects, Laravel, Symfony
-- **laravel** - Laravel PHP framework projects
-- **ruby** - Ruby projects, Ruby on Rails
-- **rails** - Ruby on Rails web framework projects
-
-### Specialized Development
-- **mobile** - React Native, Flutter, Swift, Kotlin
-- **fullstack** - Full-stack projects with frontend + backend
-- **api** - Generic backend API projects
-- **database** - Database design, migrations, stored procedures
-- **devops** - Docker, Kubernetes, CI/CD, Infrastructure
-- **terraform** - Infrastructure as Code with Terraform
-- **ai_ml** - Machine Learning, Deep Learning, Data Science
-- **blockchain** - Smart contracts, DApps, cryptocurrency
-- **gamedev** - Unity, Unreal, indie games, mobile games
-
-**Each template includes:**
-- Language-specific project structure
-- Framework conventions and best practices
-- Common dependencies and tooling
-- Security and performance guidelines
-- Deployment strategies
-- Code style standards
+**You don't need to edit `.aicf/` files manually** - they're for AI consumption. Edit the `.ai/` markdown files instead.
 
 ---
 
 ## 🚀 Quick Start
 
 ```bash
-# Auto-detect project type
-npx aic init
+# Initialize knowledge base (no installation needed)
+npx create-ai-chat-context@latest init
 
-# Or use specific technology template
-npx aic init --template nextjs     # Next.js/React projects
-npx aic init --template python     # Python projects  
-npx aic init --template rust       # Rust projects
-npx aic init --template go         # Go projects
-npx aic init --template java       # Java/Spring Boot
-npx aic init --template react      # React projects
-npx aic init --template vue        # Vue.js projects
-npx aic init --template fastapi    # Python FastAPI
-npx aic init --template django     # Django projects
-npx aic init --template devops     # DevOps/Infrastructure
-npx aic init --template ai_ml      # AI/ML projects
+# Or use short alias
+npx aic@latest init
 
 # Customize for your project
 vim .ai/project-overview.md
 vim .ai/technical-decisions.md
 
 # Commit to Git
-git add .ai/ .ai-instructions
+git add .ai/ .aicf/ .ai-instructions NEW_CHAT_PROMPT.md
+git commit -m "Add AI knowledge base"
+```
+
+---
+
+## 📦 Installation
+
+```bash
+# Use with npx (recommended - no installation needed)
+npx create-ai-chat-context@latest init
+
+# Or install globally
+npm install -g create-ai-chat-context@latest
+aic init
+
+# Or install as dev dependency
+npm install --save-dev create-ai-chat-context@latest
+npx aic init
+```
+
+---
+
+## 🎯 Commands
+
+### `aic init`
+
+Initialize a new AI knowledge base in your project.
+
+```bash
+npx aic@latest init                    # Create .ai/ and .aicf/ directories
+npx aic@latest init --force            # Overwrite existing files
+npx aic@latest init --verbose          # Show detailed output
+npx aic@latest init --dry-run          # Preview without creating files
+```
+
+### `aic migrate`
+
+Migrate existing installation to latest version (adds missing files).
+
+```bash
+npx aic@latest migrate                 # Add missing files
+npx aic@latest migrate --verbose       # Show detailed output
+npx aic@latest migrate --dry-run       # Preview changes
+```
+
+### `aic tokens`
+
+Analyze token usage in your knowledge base.
+
+```bash
+npx aic@latest tokens                  # Show total token count
+npx aic@latest tokens --verbose        # Show breakdown by file
+```
+
+### `aic stats`
+
+Show knowledge base statistics.
+
+```bash
+npx aic@latest stats                   # Show statistics
+npx aic@latest stats --verbose         # Show detailed file list
+```
+
+## 🎨 Templates
+
+`aic init` automatically detects your project type and uses appropriate templates.
+
+**32 supported languages and frameworks:**
+
+TypeScript, JavaScript, Python, Rust, Go, Java, Kotlin, C#, C++, PHP, Ruby, Swift, and 20 more including Next.js, React, Vue, Angular, Django, FastAPI, Spring Boot, Rails, Laravel, and specialized templates for AI/ML, blockchain, DevOps, and game development.
+
+**Auto-detection** - Just run `aic init` and it figures out your project type.
+
+---
+
+## 💡 How It Works
+
+1. **Initialize** - Run `aic init` to create `.ai/` directory with template files
+2. **Customize** - Edit files to match your project
+3. **Update** - Keep files updated as your project evolves
+4. **AI Reads** - AI assistants read these files at the start of each chat
+
+**Simple, manual, reliable.** You control when files are updated.
+
+---
+
+## 🎨 Example Workflow
+
+```bash
+# Start new project
+mkdir my-project && cd my-project
+npm init -y
+
+# Initialize AI knowledge base
+npx create-ai-chat-context@latest init
+
+# Customize for your project
+vim .ai/project-overview.md
+# Add: "Building a REST API with Express and TypeScript"
+
+vim .ai/technical-decisions.md
+# Add: "Using PostgreSQL for data persistence"
+
+# Commit
+git add .ai/ .aicf/ .ai-instructions NEW_CHAT_PROMPT.md
 git commit -m "Add AI knowledge base"
 
-# In your next AI chat, start with:
-"Read .ai-instructions first, then help me with [your task]"
-```
-
-**💡 Tip:** Use `npx aic` instead of `npx create-ai-chat-context` for shorter commands!
-
----
-
-## 🔧 Essential Commands
-
-### Core Commands (8)
-
-```bash
-# Setup & Management
-npx aic init                    # Initialize knowledge base
-npx aic migrate                 # Add missing files to existing project
-npx aic validate                # Check knowledge base quality
-npx aic check                   # Quick health check
-
-# Daily Usage  
-npx aic search "query"          # Find information in knowledge base
-npx aic tokens                  # Show token usage breakdown
-npx aic stats                   # View knowledge base statistics
-npx aic config                  # Manage configuration
-```
-
-### AI Integrations (6)
-
-```bash
-# AI Assistant Setup
-npx aic cursor                  # Generate .cursorrules for Cursor IDE
-npx aic warp                    # Generate Warp AI terminal instructions
-npx aic copilot                 # Generate GitHub Copilot instructions
-npx aic claude-project          # Generate Claude Projects export
-npx aic chatgpt                 # Generate ChatGPT integration instructions
-npx aic gemini                  # Generate Google Gemini integration instructions
-```
-
-**That's it!** Just 14 focused commands that cover everything you need.
-
----
-
-## 🤖 AI Integration Examples
-
-### Cursor IDE Integration
-```bash
-npx aic cursor
-# Creates .cursorrules file
-# Cursor automatically reads your knowledge base in every chat!
-```
-
-### Warp AI Terminal Integration  
-```bash
-npx aic warp
-# Creates WARP_AI_INSTRUCTIONS.md with perfect copy-paste prompt
-# Use in Warp AI to get full project context immediately
-```
-
-### GitHub Copilot Integration
-```bash
-npx aic copilot  
-# Creates copilot-instructions.md
-# Configure Copilot to understand your project conventions
-```
-
-### Claude Projects Integration
-```bash
-npx aic claude-project
-# Creates CLAUDE_PROJECT.md for easy import
-# Set up Claude Projects with your full knowledge base
-```
-
-### ChatGPT Integration
-```bash
-npx aic chatgpt
-# Creates CHATGPT_INSTRUCTIONS.md with optimized prompts
-# Perfect setup for ChatGPT web interface and API
-```
-
-### Google Gemini Integration
-```bash
-npx aic gemini
-# Creates GEMINI_INSTRUCTIONS.md optimized for 1M token context
-# Take advantage of Gemini's massive context window
+# Start coding with AI
+# AI now has full context from .ai/ files!
 ```
 
 ---
 
-## 📖 Simple Manual Workflow
+## 📊 What's New in v2.0.0
 
-This stable version uses a **simple manual workflow** that gives you full control:
+**Complete TypeScript rewrite with modern standards:**
 
-1. **Initialize** your project: `npx aic init`
-2. **Customize** the generated files for your project
-3. **Start AI chat** with: "Read .ai-instructions first"
-4. **Have productive session** with full context
-5. **Manually update** conversation-log.md with key decisions
-6. **Repeat** for next session
+- ✅ **TypeScript 5.7+** - Full type safety with strict mode
+- ✅ **ESM Modules** - Modern ES modules (with CJS compatibility)
+- ✅ **4 Core Commands** - Simplified from 14 to 4 essential commands
+- ✅ **120 Tests** - 100% passing with TDD approach
+- ✅ **1,439 Lines** - Up from 323 lines, all tested
+- ✅ **October 2025 Standards** - Modern best practices
 
-**Why manual?** 
-- ✅ **You control** what gets saved
-- ✅ **No surprises** - you know exactly what's in your knowledge base  
-- ✅ **Works reliably** - no complex automation to break
-- ✅ **Universal** - works the same with every AI assistant
+**Philosophy:** "Small things, with love" 🪵
+
+We built exactly what was needed - 4 core commands, clean tested code, modern standards, professional quality.
 
 ---
 
-## 🔬 Advanced Features Available
+## 🔧 Requirements
 
-Looking for **complex automation**, **intelligent agents**, and **multi-AI detection**?
-
-Check out the **[experimental version](https://github.com/Vaeshkar/create-ai-chat-context-experimental)** with:
-
-- 🤖 **Intelligent agent system** - Automatic conversation parsing
-- 🔄 **Real-time memory management** - Zero-API-cost processing  
-- 🎯 **Multi-LLM detection** - Automatically detects which AI you're using
-- 📊 **Advanced AICF format** - 85% token reduction with structured data
-- ⚡ **Automated workflows** - Session management and handoff systems
-
-**When to use experimental:**
-- You want cutting-edge automation
-- You're comfortable with experimental features
-- You want to contribute to AI tooling research
-
-**When to use stable (this version):**
-- You want reliability over features
-- You prefer manual control  
-- You need something that just works
-- You're using this in production
+- **Node.js** 20.0.0 or higher
+- **npm** 7.0.0 or higher (or pnpm/yarn)
 
 ---
 
-## 🛠️ Configuration
+## 📚 Documentation
 
-Optional configuration for customizing the tool:
+See the `docs/` directory for development documentation:
 
-```bash
-# View current configuration
-npx aic config
+- **Development Guide** - How v2.0.0 was built
+- **Completion Reports** - Phase completion details
+- **Architecture** - System design and decisions
 
-# Set preferred AI model for token reports (optional)
-npx aic config set preferredModel "Claude Sonnet 4.5"
-```
-
-**Configuration is stored per-project** in `.ai/config.json`. See [CONFIGURATION.md](CONFIGURATION.md) for details.
+**Note:** Documentation is being updated for v2.0.0. See [CONTRIBUTING.md](./CONTRIBUTING.md) for contribution guidelines.
 
 ---
 
-## 📚 Full Documentation
+## 🤝 Contributing
 
-### Core Documentation
-- **[COMMANDS.md](COMMANDS.md)** - Complete command reference with examples
-- **[CONFIGURATION.md](CONFIGURATION.md)** - Detailed configuration guide
-- **[CHANGELOG.md](CHANGELOG.md)** - Version history and updates
+Contributions are welcome! Please read [CONTRIBUTING.md](./CONTRIBUTING.md) for details.
 
-### After Running `init`
-These files are created in your project:
+---
 
-**📁 .ai/ Directory (Human-readable files):**
-- **`.ai/README.md`** - Overview of the knowledge base system
-- **`.ai/project-overview.md`** - Project context and conventions (AI config)
-- **`.ai/conversation-log.md`** - Chat history and decisions
-- **`.ai/technical-decisions.md`** - Architecture and technical choices
-- **`.ai/next-steps.md`** - Current priorities and tasks
-- **`.ai/design-system.md`** - Design patterns and conventions
-- **`.ai/code-style.md`** - Coding standards and guidelines
+## 📝 License
 
-**📁 .aicf/ Directory (AI-optimized files):**
-- **`.aicf/conversations.aicf`** - Structured conversation history
-- **`.aicf/decisions.aicf`** - Technical decisions in structured format
-- **`.aicf/tasks.aicf`** - Project tasks and priorities
-- **`.aicf/issues.aicf`** - Known issues and solutions
-- **`.aicf/technical-context.aicf`** - Technical context and architecture
-- **`.aicf/README.md`** - AICF format documentation
-- **And more...** - Additional context files
-
-**📄 Root files:**
-- **`.ai-instructions`** - Instructions for AI assistants
+MIT © [Dennis H. A. van Leeuwen](https://github.com/Vaeshkar)
 
 ---
 
@@ -319,19 +247,14 @@ These files are created in your project:
 - [GitHub Repository](https://github.com/Vaeshkar/create-ai-chat-context)
 - [npm Package](https://www.npmjs.com/package/create-ai-chat-context)
 - [Issue Tracker](https://github.com/Vaeshkar/create-ai-chat-context/issues)
-- [Full Documentation](https://github.com/Vaeshkar/create-ai-chat-context#readme)
-- [Experimental Version](https://github.com/Vaeshkar/create-ai-chat-context-experimental)
+- [Changelog](./CHANGELOG.md)
 
 ---
 
-## 📄 License
+## ⭐ Show Your Support
 
-MIT
-
----
-
-**Made with ❤️ for developers who use AI assistants daily**
+If this project helped you, please give it a ⭐️ on [GitHub](https://github.com/Vaeshkar/create-ai-chat-context)!
 
 ---
 
-**Questions?** [Open an issue on GitHub](https://github.com/Vaeshkar/create-ai-chat-context/issues)
+**Built with ❤️ following "Small things, with love" philosophy**

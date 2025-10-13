@@ -28,9 +28,19 @@ This project uses a `.ai/` knowledge base system to preserve context across chat
 - Why we chose X over Y
 - Key architectural decisions
 - Trade-offs and rationale
-- Coding standards and conventions
 
-### 4. **`.ai/conversation-log.md`** (3 minutes)
+### 4. **`.ai/code-style.md`** (5 minutes) 🚨 CRITICAL FOR CODING
+
+- TypeScript/ESM standards (October 2025)
+- Function design principles (max 50 lines, single responsibility)
+- Type safety rules (no `any`, explicit returns)
+- Error handling patterns (typed errors, fail fast)
+- Testing requirements (every function must have tests)
+- Code review checklist
+
+**⚠️ READ THIS BEFORE WRITING ANY CODE!**
+
+### 5. **`.ai/conversation-log.md`** (3 minutes)
 
 - Key decisions from previous chat sessions
 - What was accomplished and when
@@ -47,6 +57,8 @@ This project uses a `.ai/` knowledge base system to preserve context across chat
 - Planned features and improvements
 - Current priorities
 - Roadmap and future direction
+
+**Total reading time: ~25 minutes** (but saves hours of context-gathering)
 
 ---
 
@@ -97,11 +109,13 @@ Documentation lag is real. Users complete work but forget to update docs. If you
 **Scenario: Agent Consolidation**
 
 ❌ **Wrong:**
+
 - Read docs: "Status: PLANNED - 12 agents → 4 agents"
 - Tell user: "Let's consolidate your 12 agents to 4"
 - User: "I already did that last week! We have 5 agents now!"
 
 ✅ **Correct:**
+
 - Check code: `ls src/lib/agents/` → finds 5 files
 - Read docs: "Status: PLANNED - 12 agents → 4 agents"
 - Notice discrepancy
@@ -213,13 +227,11 @@ When the user says something like:
 Then you MUST:
 
 1. 🚨 **Update `.ai/conversation-log.md`** with this session's work
-
    - Add entry at the TOP of the file
    - Use the template format provided in that file
    - Be specific about what was accomplished
 
 2. 🚨 **Update other `.ai/` files** if you made important decisions
-
    - `.ai/technical-decisions.md` - New architectural choices
    - `.ai/known-issues.md` - Problems solved or discovered
    - `.ai/next-steps.md` - Updated priorities

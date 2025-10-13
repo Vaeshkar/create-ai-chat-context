@@ -1,0 +1,94 @@
+@STANDARDS|October 2025|TypeScript/ESM|v2.0.0
+@PHILOSOPHY|Small things with love|Write code for 53-year veteran|Every line has purpose|Simple over clever|Explicit over implicit|Writing less is more
+
+@LANGUAGE
+TypeScript|5.7+|strict mode|noImplicitAny|strictNullChecks|noImplicitReturns|noUncheckedIndexedAccess
+ESM|import/export only|never require()|file extensions in imports|.js extension
+Node.js|20+|LTS|modern APIs|fetch|crypto
+Target|ES2022|async/await|optional chaining|nullish coalescing
+
+@FUNCTION_DESIGN
+Max lines|50|including comments and blanks
+Single responsibility|one function one thing
+Pure functions|preferred|same input same output|no side effects
+Return typed results|never void unless fire-and-forget
+Early returns|guard clauses|fail fast
+
+@TYPE_SAFETY
+No any|use unknown then narrow|type guards
+No as casts|use type guards instead
+Explicit return types|always declare
+Strict null checks|handle null/undefined explicitly
+Discriminated unions|for complex types|type-safe results
+
+@ERROR_HANDLING
+Throw typed errors|custom error classes|src/types/errors.ts
+Never swallow errors|handle or propagate|log and rethrow
+Validate inputs|check at function entry|fail fast
+Provide context|specific error messages|explain what and why
+No silent failures|always log errors
+
+@TESTING
+Every function must have tests|no exceptions
+Test structure|Arrange Act Assert
+Test cases|happy path|error cases|edge cases
+Descriptive names|should throw X when Y
+Mock external deps|filesystem|network|database
+Aim for 100% coverage|every line tested
+
+@NAMING
+Functions|camelCase|verb-first|getUserById|validateEmail
+Types|PascalCase|UserProfile|CommandOptions
+Constants|UPPER_SNAKE_CASE|MAX_RETRIES|DEFAULT_TIMEOUT
+Files|kebab-case.ts|file-system.ts|user-service.ts
+Booleans|is/has/should/can prefix|isValid|hasError
+
+@IMPORTS
+Order|1-node-builtins|2-external-deps|3-internal-modules
+Group by type|separate with blank lines
+Use .js extension|import from './foo.js'
+
+@AVOID
+any type|as casts|require()|functions over 50 lines
+nested callbacks|mutable global state|console.log
+magic numbers|deep nesting max 3|abbreviations
+
+@PREFER
+Early returns|destructuring|optional chaining|nullish coalescing
+Array methods|const over let|template literals|async/await
+Type guards|pure functions|single responsibility
+
+@CHECKLIST
+typecheck passes|tests pass|lint passes|format applied
+no any types|functions under 50 lines|all functions tested
+error handling present|JSDoc on public functions|no console.log
+imports organized|no magic numbers|descriptive names
+
+@EXAMPLES_BAD
+any type|function process(data: any)
+as cast|const user = data as User
+require|const fs = require('fs')
+void return|function save(): void
+swallow error|catch (e) {}
+magic number|if (count > 5)
+console.log|console.log('debug')
+
+@EXAMPLES_GOOD
+unknown type|function process(data: unknown)
+type guard|if (isUser(data))
+import|import { readFile } from 'fs/promises'
+typed return|function save(): Result<void>
+handle error|catch (e) { logger.error(); throw; }
+named constant|const MAX_RETRIES = 5
+logger|logger.debug('message')
+
+@REFERENCES
+TypeScript Handbook|https://www.typescriptlang.org/docs/
+Meno ts-xxhash|https://github.com/mabels/ts-xxhash
+Vitest|https://vitest.dev/
+ESLint TypeScript|https://typescript-eslint.io/
+
+@UPDATED|2025-10-13
+@VERSION|2.0.0
+@STATUS|Active
+

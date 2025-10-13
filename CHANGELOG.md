@@ -5,14 +5,163 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+---
 
-### Planned Features
+## [2.0.0] - 2025-10-13
 
-- VS Code extension (optional)
-- Advanced search with filters
-- Team collaboration features
-- Analytics dashboard
+### 🎉 Complete TypeScript Rewrite
+
+**v2.0.0 is a complete rewrite from the ground up following October 2025 standards and the philosophy of "Small things, with love" (Mach kleine dinge und mit liebe).**
+
+This release transforms create-ai-chat-context from a 323-line CommonJS script into a 1,439-line professional TypeScript library with 120 passing tests and 100% type safety.
+
+---
+
+### ✨ Added
+
+#### Modern Technology Stack
+
+- **TypeScript 5.7+** with strict mode enabled
+- **ESM modules** as primary format (with CJS compatibility)
+- **Vitest** for testing (120 tests, 100% passing)
+- **ESLint 9** with typescript-eslint for linting
+- **Prettier** for code formatting
+- **Dual build system** (ESM + CJS)
+
+#### Core Commands (4 Essential Commands)
+
+- `aic init` - Initialize AI knowledge base with .ai/ and .aicf/ directories
+- `aic migrate` - Migrate existing installations (adds missing files)
+- `aic tokens` - Analyze token usage in knowledge base
+- `aic stats` - Show knowledge base statistics
+
+#### Quality & Testing
+
+- 120 comprehensive tests covering all functionality
+- 100% type safety with strict TypeScript
+- TDD (Test-Driven Development) approach
+- Functions limited to 50 lines for maintainability
+- Typed custom error classes
+- Proper error handling throughout
+
+---
+
+### 🔄 Changed
+
+#### Architecture
+
+- **Module system:** CommonJS → ESM (with CJS compatibility)
+- **Language:** JavaScript → TypeScript 5.7+
+- **Testing:** None → 120 tests with Vitest
+- **Type safety:** None → 100% with strict mode
+- **Build:** Single → Dual (ESM + CJS)
+- **Node.js requirement:** 14+ → 20+ (LTS)
+
+#### Command Structure
+
+- **Simplified from 14 commands to 4 core commands**
+- Removed experimental features for stability
+- Focus on essential functionality
+- Better error messages and user feedback
+- Spinner animations for long operations
+- Colored console output for better UX
+
+#### Code Quality
+
+- **Lines of code:** 323 → 1,439 (all tested)
+- **Functions:** No limit → Max 50 lines each
+- **Errors:** Generic → Typed custom errors
+- **Standards:** 2018 patterns → October 2025 best practices
+- **Philosophy:** None → "Small things, with love"
+
+---
+
+### 🗑️ Removed
+
+#### Commands (Simplified from 14 to 4)
+
+- `validate`, `check`, `search`, `config` - Removed for simplicity
+- `cursor`, `warp`, `copilot`, `claude-project`, `chatgpt`, `gemini` - Removed AI integrations
+- `finish`, `monitor` - Removed session management
+
+**Rationale:** Focus on core functionality. Complex features caused maintenance overhead and broke frequently. Users wanted reliability over experimental automation.
+
+---
+
+### 💥 Breaking Changes
+
+#### Module System
+
+```javascript
+// ❌ Old (v1.0.7) - CommonJS
+const aic = require('create-ai-chat-context');
+
+// ✅ New (v2.0.0) - ESM
+import { init, migrate, tokens, stats } from 'create-ai-chat-context';
+```
+
+#### Command Count
+
+- **v1.0.7:** 14 commands
+- **v2.0.0:** 4 commands (init, migrate, tokens, stats)
+
+#### Node.js Version
+
+- **v1.0.7:** Node.js 14+
+- **v2.0.0:** Node.js 20+ (LTS)
+
+#### Installation
+
+```bash
+# Always use @latest to get v2.0.0
+npm install -g create-ai-chat-context@latest
+```
+
+---
+
+### 🔧 Migration Guide
+
+#### For Existing Users
+
+1. **Update to v2.0.0:**
+
+   ```bash
+   npm install -g create-ai-chat-context@latest
+   ```
+
+2. **Migrate existing installation:**
+
+   ```bash
+   cd your-project
+   aic migrate
+   ```
+
+3. **Verify files:**
+   ```bash
+   aic stats
+   ```
+
+---
+
+### 📊 Statistics
+
+- **Lines of code:** 323 → 1,439 (+345%)
+- **Test coverage:** 0 → 120 tests
+- **Type safety:** 0% → 100%
+- **Commands:** 14 → 4 (-71%)
+- ✅ 120/120 tests passing (100%)
+- ✅ 0 type errors
+- ✅ Professional quality code
+
+---
+
+### 🎓 Philosophy
+
+**"Small things, with love" (Mach kleine dinge und mit liebe)**
+
+Inspired by feedback from Meno Abels (programmer since 1972), we built something professional that focuses on doing small things well.
+
+---
 
 ## [1.0.7] - 2025-10-12
 
@@ -36,7 +185,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - **🏁 Session Management System**
-
   - `npx aic finish` - Complete session wrap-up with git integration
   - `npx aic finish --aicf` - Finish session and migrate to AICF 3.0
   - `npx aic monitor` - Token usage monitoring and recommendations
@@ -47,7 +195,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Meaningful commit messages with session summaries
 
 - **🚀 AICF 3.0 Enhanced AI Continuity Format**
-
   - Enhanced token lengths: TOPIC (60→80), OUTCOME (80→120), DECISION (100→120)
   - New AI continuity fields: CONTEXT_REFS, CONFIDENCE, IMPACT_SCORE
   - Intelligent scoring algorithms for priority filtering
@@ -55,7 +202,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Better relationship mapping between conversations, decisions, tasks
 
 - **🎯 32 Comprehensive Templates**
-
   - JavaScript/TypeScript: nextjs, react, vue, angular, node
   - Python: python, django, fastapi, flask
   - Systems Programming: rust, go, cpp
@@ -102,14 +248,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - **🎯 BREAKING CHANGE: Simplified to 7 Essential Files**
-
   - Reduced from 15 files to 7 essential documentation files
   - Removed `.aicf/` folder entirely (complex format not needed)
   - Focus on simple, maintainable markdown files
   - Files: README.md, conversation-log.md, technical-decisions.md, next-steps.md, design-system.md, code-style.md, project-overview.md
 
 - **📝 Updated Commands**
-
   - `init` now creates only 7 files in `.ai/` folder
   - `migrate` upgrades existing projects to v1.0.0 structure
   - Removed `chat-finish` command (manual workflow adopted)
@@ -139,21 +283,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - **🚀 Direct .aicf/ Reading - ZERO Manual Steps!**
-
   - AI can now read `.aicf/` files directly without copy/paste
   - Removed copy/paste workflow from all documentation
   - Updated workflow: "Start new chat → Say: 'Read .aicf/ and continue' → Done!"
   - Zero manual steps, zero clipboard usage
 
 - **📊 Updated Diagrams**
-
   - Removed decorative emojis (kept only ✅/❌)
   - Updated AI models: Claude Sonnet 4.5, Opus 4, OpenAI o1
   - Fixed workflow diagram (removed orphaned nodes)
   - All diagrams show direct reading workflow
 
 - **📝 Documentation Cleanup**
-
   - Removed duplicate Anthropic comparison table
   - Updated "What's New" section (v0.13.0, v0.13.1, v0.14.0)
   - Simplified "Key Commands" (15 → 8 essential commands)
@@ -168,7 +309,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - **📖 Complete AICF Guide** (`docs/aicf/AICF-GUIDE.md`)
-
   - How to read AICF files
   - Format specifications
   - Converting back instructions
@@ -191,7 +331,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - **📚 Documentation Reorganization**
-
   - Moved 8 AICF docs to `docs/aicf/`
   - Moved 2 guides to `docs/guides/`
   - Moved 3 archive files to `docs/archive/`
@@ -199,7 +338,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Root now has only 7 essential files
 
 - **📝 Simplified README**
-
   - Reduced from 315 lines → 208 lines (34% reduction)
   - Moved detailed format examples to docs
   - Kept hero section and quick start
@@ -220,16 +358,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - **🎉 AICF 2.0 - Universal AI Memory Protocol** - Complete system for persistent AI memory!
-
   - **New Commands:**
-
     - `npx aic migrate` - Convert `.ai/` directory to `.aicf/` format
     - `npx aic context` - Display AI context summary
     - `npx aic context --ai` - AI-optimized format for new chat sessions
     - `npx aic context --full` - Complete context with all details
 
   - **Directory Structure:**
-
     - `.aicf/index.aicf` - Fast lookup index with project metadata
     - `.aicf/conversations.aicf` - All chat history (ultra-compact)
     - `.aicf/decisions.aicf` - Technical decisions
@@ -238,7 +373,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     - `.aicf/.meta` - Project metadata (JSON)
 
   - **Features:**
-
     - ✅ **88% token reduction** vs markdown (1.8K vs 15K tokens)
     - ✅ **Instant context loading** - 2 seconds vs 5 minutes
     - ✅ **Relationship tracking** - Link conversations to decisions
@@ -249,7 +383,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     - ✅ **Extensible** - Add new types without breaking
 
   - **Parsers:**
-
     - Converts `conversation-log.md` (9 entries extracted)
     - Converts `technical-decisions.md` (6 decisions extracted)
     - Converts `known-issues.md` (5 issues extracted)
@@ -316,7 +449,6 @@ This is the foundation of how AIs will communicate with each other across time. 
 ### Added
 
 - **🚀 AI-Native Conversation Format (AICF)** - Maximum token efficiency for power users!
-
   - **85% token reduction** vs YAML (12 tokens vs 80 tokens per entry)
   - **92% token reduction** vs prose (150 tokens vs 12 tokens per entry)
   - **6x more history** in context windows
@@ -684,7 +816,6 @@ Result: No duplicates! 🎉
 ### Added
 
 - **Configuration system** - New `config` command to manage user preferences
-
   - `npx aic config` - List all configuration
   - `npx aic config set preferredModel "Claude Sonnet 4.5"` - Set your preferred AI model
   - `npx aic config set showAllModels true` - Always show all models in tokens command
@@ -724,7 +855,6 @@ Result: No duplicates! 🎉
 ### Improved
 
 - **Smarter token usage insights** - Context-aware recommendations based on actual AI limits
-
   - Now considers both token count AND conversation entry count
   - Uses realistic thresholds: 8K (healthy), 30K (moderate), 100K (large)
   - Different advice for few vs many entries:
@@ -860,7 +990,6 @@ This release completes half-finished features with intelligent auto-detection an
 ### Added
 
 - **Auto-detection of project type** - Smart template selection
-
   - Automatically detects Next.js projects (checks package.json for `next` or `react`)
   - Automatically detects Python projects (checks for requirements.txt, pyproject.toml, setup.py, Pipfile, poetry.lock)
   - Automatically detects Rust projects (checks for Cargo.toml)
@@ -881,7 +1010,6 @@ This release completes half-finished features with intelligent auto-detection an
 ### Enhanced
 
 - **`init` command** - Now auto-detects project type
-
   - No need to specify `--template` for common project types
   - Detects Next.js, Python, Rust automatically
   - Shows detection result with spinner
@@ -1037,7 +1165,6 @@ This release makes your knowledge base searchable, measurable, and maintainable 
 ### Added
 
 - **`search` command** - Find information instantly
-
   - Search across all `.ai/` files
   - Highlights matching text
   - Shows line numbers and context
@@ -1045,7 +1172,6 @@ This release makes your knowledge base searchable, measurable, and maintainable 
   - Example: `npx create-ai-chat-context search "authentication"`
 
 - **`stats` command** - Analytics and insights
-
   - Total files, lines, words, tokens
   - Conversation entry count
   - Last updated timestamp
@@ -1056,7 +1182,6 @@ This release makes your knowledge base searchable, measurable, and maintainable 
   - Example: `npx create-ai-chat-context stats`
 
 - **`export` command** - Share and backup
-
   - Export as Markdown (single file)
   - Export as JSON (structured data)
   - Export as HTML (viewable in browser)
@@ -1267,7 +1392,6 @@ This release adds zero-effort context loading for GitHub Copilot and Claude Proj
 ### Added
 
 - **`copilot` command** - GitHub Copilot integration
-
   - Generates `.github/copilot-instructions.md` file
   - Auto-loads project context in every Copilot chat
   - No manual prompting needed
@@ -1416,14 +1540,12 @@ This release adds project-specific templates for faster onboarding with better d
 ### Added
 
 - **Template system** - Choose templates based on project type
-
   - `--template nextjs` - Next.js/React projects
   - `--template python` - Python projects
   - `--template default` - Generic (works for anything)
   - More templates coming in future releases
 
 - **Next.js template** - Tailored for Next.js/React projects
-
   - App Router vs Pages Router decision template
   - TypeScript, styling, authentication choices
   - State management patterns
@@ -1540,7 +1662,6 @@ This release makes maintaining your knowledge base **effortless** with interacti
 ### Added
 
 - **`log` command** - Interactive conversation log entry
-
   - Auto-detects next chat number
   - Auto-fills current date
   - Prompts for: accomplishments, decisions, next steps
@@ -1550,7 +1671,6 @@ This release makes maintaining your knowledge base **effortless** with interacti
   - **Impact:** Solves #1 user pain point (forgetting to log)
 
 - **`validate` command** - Knowledge base quality check
-
   - Checks all required files exist
   - Validates file formats (especially conversation log)
   - Detects default/empty templates
@@ -1696,7 +1816,6 @@ This release makes token management **proactive** instead of reactive. Users now
 ### Enhanced
 
 - **`.ai-instructions` template** - Added automatic token usage check
-
   - AI now counts conversation entries after reading knowledge base
   - Warns user if > 30 entries: "Run `check` to see token usage"
   - Alerts user if > 50 entries: "Consider archiving"
@@ -1704,14 +1823,12 @@ This release makes token management **proactive** instead of reactive. Users now
   - No extra commands needed from user
 
 - **`init` command** - Smart warnings for existing projects
-
   - Checks token usage after initialization
   - Warns if existing conversation log is large (> 15,000 tokens)
   - Suggests running `check` command
   - Only shows when relevant
 
 - **NEW_CHAT_PROMPT.md** - Added health check workflow
-
   - New recommended prompt: "Read .ai-instructions first, check token usage, then help me [task]"
   - Added "Token Management" section with examples
   - Shows when to check and what to do if usage is high
@@ -1787,7 +1904,6 @@ This release adds powerful token management features to help you keep your knowl
 ### Added
 
 - **`tokens` command** - Show detailed token usage breakdown
-
   - Displays token count per file
   - Shows percentage of context window used
   - Compares against GPT-3.5, GPT-4, Claude context windows
@@ -1795,14 +1911,12 @@ This release adds powerful token management features to help you keep your knowl
   - Example: `npx create-ai-chat-context tokens`
 
 - **`archive` command** - Archive old conversation logs
-
   - Moves old entries to `.ai/archive/` directory
   - Keeps specified number of recent entries in main log
   - Preserves all history in dated archive files
   - Example: `npx create-ai-chat-context archive --keep 10`
 
 - **`summary` command** - Summarize old conversation logs
-
   - Condenses old entries into brief summaries
   - Keeps specified number of recent entries detailed
   - Reduces token usage by 60-80%
@@ -1817,7 +1931,6 @@ This release adds powerful token management features to help you keep your knowl
 ### Enhanced
 
 - **README.md** - Added "Token Usage & Management" section
-
   - Token usage table by project stage
   - Efficiency comparison (with vs without the system)
   - Token management commands documentation
@@ -1894,7 +2007,6 @@ This release significantly improves how AI assistants maintain context across ch
 ### Enhanced
 
 - **`.ai-instructions` template** - Completely rewritten to be generic and universal
-
   - Removed project-specific content (was referencing "toy-store-unified")
   - Added MANDATORY workflow section (START → DURING → END)
   - Added CRITICAL reminders to update files before ending session
@@ -1902,14 +2014,12 @@ This release significantly improves how AI assistants maintain context across ch
   - Multiple warnings emphasizing importance of updates
 
 - **`conversation-log.md` template** - Much clearer instructions for AI assistants
-
   - Added explicit instructions at the top for when to read/update
   - Provided detailed template with concrete examples
   - Added tips for writing good entries
   - Added reminder section with step-by-step update process
 
 - **`NEW_CHAT_PROMPT.md`** - New recommended prompts for chat continuity
-
   - Added: "Read .ai-instructions first, and help me continue where we left off with chat #[number]"
   - Added: "Read .ai-instructions first, continue from chat #[number], then help me [task]"
   - Marked continuity prompts as RECOMMENDED and BEST

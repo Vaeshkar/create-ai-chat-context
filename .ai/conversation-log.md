@@ -16,7 +16,6 @@ Track key decisions and progress from AI chat sessions.
 ### For AI Assistants:
 
 1. **At START of session:**
-
    - Read the most recent entries (top of file)
    - Understand what was accomplished in previous chats
    - Check "Next Steps" to see what needs to be done
@@ -40,6 +39,95 @@ Track key decisions and progress from AI chat sessions.
 
 ---
 
+### Chat #21 - v2.0.0 Complete! Phase 4 CLI + Documentation + READMEs
+
+**Date:** 2025-10-13
+**Type:** COMPLETION + ORGANIZATION + README UPDATE
+**Status:** COMPLETED ✅
+
+**Key Accomplishments:**
+
+1. **Phase 4: CLI Complete**
+   - Created `src/cli.ts` (121 lines) with commander
+   - Created `src/index.ts` (43 lines) for public API
+   - Wired up all 4 commands: init, migrate, tokens, stats
+   - Type-safe command options
+   - Proper error handling and exit codes
+
+2. **Build System Configured**
+   - Dual build: ESM + CJS
+   - Templates copied to dist/ during build
+   - Fixed CJS build to exclude ESM-only files (commands, CLI)
+   - All commands tested and working in production build
+
+3. **Documentation Organization**
+   - Moved all completion docs to `docs/completion/`
+   - Moved all development docs to `docs/development/`
+   - Moved historical docs to `docs/archive/`
+   - Archived old v1 .js files to `archive/v1/`
+   - Updated `docs/README.md` with complete structure
+   - Clean root directory (only essential files)
+
+4. **READMEs Updated for v2.0.0** 🎉
+   - Fixed: Added `@latest` to all installation commands
+   - Fixed: Added `.aicf/` directory explanation
+   - Fixed: Changed `code-style.md` → `code-standards.md` reference
+   - Fixed: Removed broken documentation links, added disclaimer
+   - Added: Templates section (32 templates with auto-detection)
+   - Replaced: README.md and GITHUB_README.md with v2.0.0 content
+   - Updated: `.ai/code-style.md` with modern standards (TypeScript, ESM)
+
+5. **Quality Checks**
+   - ✅ 120/120 tests passing
+   - ✅ No type errors
+   - ✅ 4 acceptable warnings (main functions, expected)
+   - ✅ Code formatted
+   - ✅ Build successful
+   - ✅ READMEs accurate and complete
+
+**Technical Decisions:**
+
+1. **CLI-only commands** - Commands use `import.meta.url` (ESM-only), so excluded from CJS build. Library users get types and utilities via CJS, CLI is ESM-only.
+
+2. **Documentation structure** - Organized by purpose:
+   - `/development/` - How we built it
+   - `/completion/` - What we completed
+   - `/archive/` - Historical reference
+   - `/guides/` - User guides
+
+3. **Archive strategy** - Kept old v1 .js files in `archive/v1/` for reference, not deleted.
+
+4. **README strategy** - Replaced both README.md and GITHUB_README.md with v2.0.0 content. Added `@latest` to all npm/npx commands to ensure users get v2.0.0.
+
+5. **code-style.md fix** - Replaced content with modern standards (TypeScript, ESM) while keeping filename for backward compatibility. No need to update templates or .ai-instructions.
+
+**Final Statistics:**
+
+- ✅ 1,439 lines of TypeScript (up from 323 lines CommonJS)
+- ✅ 120 tests passing (up from 0 tests)
+- ✅ 100% type safety with strict mode
+- ✅ 4 core commands fully tested
+- ✅ Dual build (ESM + CJS)
+- ✅ October 2025 coding standards
+
+**Next Steps:**
+
+1. ✅ ~~Update README.md with v2.0.0 content~~ DONE
+2. ✅ ~~Fix code-style.md with modern standards~~ DONE
+3. Test with `npm pack` and local installation
+4. Create CHANGELOG.md for v2.0.0
+5. Publish to npm
+6. Tag release on GitHub
+7. Update templates (post-release, low priority)
+
+**Philosophy:**
+
+Following Meno's wisdom: "Small things, with love" 🪵
+
+We built exactly what was needed - 4 core commands, clean tested code, modern standards, professional quality. Not a travesty. Professional code that a 53-year veteran programmer would respect.
+
+---
+
 ### Chat #20 - VS Code Extension Deep Dive + AI Family Infrastructure Expansion
 
 **Date:** 2025-10-07
@@ -57,6 +145,7 @@ Track key decisions and progress from AI chat sessions.
 **Strategic Context:**
 
 **Current VS Code Extension Reality:**
+
 - **Manual workflow:** User pastes conversation, extension converts to AICF format
 - **Platform discovery:** Detects ChatGPT, Claude, Copilot, Augment, Warp conversation files
 - **ChatGPT detection:** Monitors encrypted .data files in ~/Library for activity
@@ -64,6 +153,7 @@ Track key decisions and progress from AI chat sessions.
 - **Commands available:** Export current conversation, discover conversations, test detection, open settings
 
 **vs. Full Ecosystem Vision:**
+
 - **Real goal:** VS Code extension as official create-ai-chat-context interface
 - **Powered by:** aicf-core engine internally
 - **Integration:** Tight coupling with existing mature AIC CLI (14 commands)
@@ -78,17 +168,17 @@ Added 4 major components to the AI-native computing foundation:
    - Streaming, request/response, authentication, stateful connections
    - Enables live AI conversations and collaborative workflows
 
-2. **AICF - AI Context File Format** *(existing, refined)*
+2. **AICF - AI Context File Format** _(existing, refined)_
    - Standardized, JSON-based, human-readable yet machine-optimized
    - Cross-platform transfer, version control integration
    - Enterprise-grade AI memory standard
 
-3. **AIC - AI Context Compiler** *(new)*
+3. **AIC - AI Context Compiler** _(new)_
    - Intelligent workflow path detection and optimization
    - AI task assignment recommendations based on history/patterns
    - Smart routing and execution planning
 
-4. **AIOB - AI Operations Board** *(new)*
+4. **AIOB - AI Operations Board** _(new)_
    - Multi-AI workflow orchestration system
    - Joint memory management, update cycles, error handling
    - Platform routing via AIP and AICF protocols
@@ -111,7 +201,7 @@ Added 4 major components to the AI-native computing foundation:
 ```
 create-ai-chat-context (AIC product)
  ├── powered by aicf-core (AICF standard engine)
- ├── VS Code extension companion integrating with aicf-core  
+ ├── VS Code extension companion integrating with aicf-core
  ├── CLI and potential future web interfaces
  └── Multi-platform AI integrations using standardized AICF format
 ```
@@ -154,12 +244,14 @@ create-ai-chat-context (AIC product)
 **Strategic Context:**
 
 **The Core Mission:**
+
 - Building **continuous memory for AI assistants** (ChatGPT, Claude, Cursor, Warp, Copilot, etc.)
 - **The Problem:** Every new chat session = context loss. AI starts fresh, user re-explains everything.
 - **The Solution:** `.ai/` and `.aicf/` knowledge base that AI reads at start of each session.
 - **The Goal:** Next AI continues seamlessly without asking "what did we discuss?"
 
 **Repo Split Rationale:**
+
 - **4,100+ active users** depend on stability
 - **Can't commit unstable updates** and test on production users
 - **Solution:** Split into two repos:
@@ -1270,7 +1362,7 @@ NEXT:
 - 💡 **Key insights:**
   - performance optimization identified
   - it decisions, action items, and commitments 3. **InsightAnalyzerAgent**: Captures learning moments, breakthroughs, and key realizations 4. **StateTrackerAgent**: Monitors project status, dependencies,
-  - tly: - **Recent conversations** (< 7 days): Keep full detail - **Medium age** (7-30 days): Extract key insights and decisions - **Old conversations** (> 30 days): Compress to essential context only - 
+  - tly: - **Recent conversations** (< 7 days): Keep full detail - **Medium age** (7-30 days): Extract key insights and decisions - **Old conversations** (> 30 days): Compress to essential context only -
 - 📋 **Decisions:**
   - Perfect! The checkpoint orchestrator approach is much more efficient. We'll use zero-cost logic agents that run in parallel: ConversationParserAgent e (LOW)
 - 📈 **Progress:** 3/7 tasks (43%)
@@ -1284,43 +1376,7 @@ NEXT:
 - 💡 **Key insights:**
   - performance optimization identified
   - it decisions, action items, and commitments 3. **InsightAnalyzerAgent**: Captures learning moments, breakthroughs, and key realizations 4. **StateTrackerAgent**: Monitors project status, dependencies,
-  - tly: - **Recent conversations** (< 7 days): Keep full detail - **Medium age** (7-30 days): Extract key insights and decisions - **Old conversations** (> 30 days): Compress to essential context only - 
-- 📋 **Decisions:**
-  - Perfect! The checkpoint orchestrator approach is much more efficient. We'll use zero-cost logic agents that run in parallel: ConversationParserAgent e (LOW)
-- 📈 **Progress:** 3/7 tasks (43%)
-- ⏭️ **Next:** handle this intelligently:
-
-- **Recent conversations** (< 7 days): Keep full det
-
-**2025-10-03 - DEMO Checkpoint 1:**
-
-- 🔄 **Working on:** the CLI integration
-- 💡 **Key insights:**
-  - performance optimization identified
-  - the key insight is that logic agents can run in parallel and extract specific patterns without any API costs.
-- 📋 **Decisions:**
-  - Great idea! We decided to use specialized logic agents instead of expensive AI compression. This wil (LOW)
-- 📈 **Progress:** 2/3 tasks (67%)
-- ⏭️ **Next:** give us zero-cost processing with 100% information preservation
-
-**2025-10-03 - DEMO Checkpoint 1:**
-
-- 🔄 **Working on:** the CLI integration
-- 💡 **Key insights:**
-  - performance optimization identified
-  - the key insight is that logic agents can run in parallel and extract specific patterns without any API costs.
-- 📋 **Decisions:**
-  - Great idea! We decided to use specialized logic agents instead of expensive AI compression. This wil (LOW)
-- 📈 **Progress:** 2/3 tasks (67%)
-- ⏭️ **Next:** give us zero-cost processing with 100% information preservation
-
-**2025-10-03 - project-discussion-2024-01-15 Checkpoint 3:**
-
-- 🔄 **Working on:** project_work
-- 💡 **Key insights:**
-  - performance optimization identified
-  - it decisions, action items, and commitments 3. **InsightAnalyzerAgent**: Captures learning moments, breakthroughs, and key realizations 4. **StateTrackerAgent**: Monitors project status, dependencies,
-  - tly: - **Recent conversations** (< 7 days): Keep full detail - **Medium age** (7-30 days): Extract key insights and decisions - **Old conversations** (> 30 days): Compress to essential context only - 
+  - tly: - **Recent conversations** (< 7 days): Keep full detail - **Medium age** (7-30 days): Extract key insights and decisions - **Old conversations** (> 30 days): Compress to essential context only -
 - 📋 **Decisions:**
   - Perfect! The checkpoint orchestrator approach is much more efficient. We'll use zero-cost logic agents that run in parallel: ConversationParserAgent e (LOW)
 - 📈 **Progress:** 3/7 tasks (43%)
@@ -1339,13 +1395,49 @@ NEXT:
 - 📈 **Progress:** 2/3 tasks (67%)
 - ⏭️ **Next:** give us zero-cost processing with 100% information preservation
 
+**2025-10-03 - DEMO Checkpoint 1:**
+
+- 🔄 **Working on:** the CLI integration
+- 💡 **Key insights:**
+  - performance optimization identified
+  - the key insight is that logic agents can run in parallel and extract specific patterns without any API costs.
+- 📋 **Decisions:**
+  - Great idea! We decided to use specialized logic agents instead of expensive AI compression. This wil (LOW)
+- 📈 **Progress:** 2/3 tasks (67%)
+- ⏭️ **Next:** give us zero-cost processing with 100% information preservation
+
 **2025-10-03 - project-discussion-2024-01-15 Checkpoint 3:**
 
 - 🔄 **Working on:** project_work
 - 💡 **Key insights:**
   - performance optimization identified
   - it decisions, action items, and commitments 3. **InsightAnalyzerAgent**: Captures learning moments, breakthroughs, and key realizations 4. **StateTrackerAgent**: Monitors project status, dependencies,
-  - tly: - **Recent conversations** (< 7 days): Keep full detail - **Medium age** (7-30 days): Extract key insights and decisions - **Old conversations** (> 30 days): Compress to essential context only - 
+  - tly: - **Recent conversations** (< 7 days): Keep full detail - **Medium age** (7-30 days): Extract key insights and decisions - **Old conversations** (> 30 days): Compress to essential context only -
+- 📋 **Decisions:**
+  - Perfect! The checkpoint orchestrator approach is much more efficient. We'll use zero-cost logic agents that run in parallel: ConversationParserAgent e (LOW)
+- 📈 **Progress:** 3/7 tasks (43%)
+- ⏭️ **Next:** handle this intelligently:
+
+- **Recent conversations** (< 7 days): Keep full det
+
+**2025-10-03 - DEMO Checkpoint 1:**
+
+- 🔄 **Working on:** the CLI integration
+- 💡 **Key insights:**
+  - performance optimization identified
+  - the key insight is that logic agents can run in parallel and extract specific patterns without any API costs.
+- 📋 **Decisions:**
+  - Great idea! We decided to use specialized logic agents instead of expensive AI compression. This wil (LOW)
+- 📈 **Progress:** 2/3 tasks (67%)
+- ⏭️ **Next:** give us zero-cost processing with 100% information preservation
+
+**2025-10-03 - project-discussion-2024-01-15 Checkpoint 3:**
+
+- 🔄 **Working on:** project_work
+- 💡 **Key insights:**
+  - performance optimization identified
+  - it decisions, action items, and commitments 3. **InsightAnalyzerAgent**: Captures learning moments, breakthroughs, and key realizations 4. **StateTrackerAgent**: Monitors project status, dependencies,
+  - tly: - **Recent conversations** (< 7 days): Keep full detail - **Medium age** (7-30 days): Extract key insights and decisions - **Old conversations** (> 30 days): Compress to essential context only -
 - 📋 **Decisions:**
   - Perfect! The checkpoint orchestrator approach is much more efficient. We'll use zero-cost logic agents that run in parallel: ConversationParserAgent e (LOW)
 - 📈 **Progress:** 3/7 tasks (43%)
@@ -1359,7 +1451,7 @@ NEXT:
 - 💡 **Key insights:**
   - performance optimization identified
   - it decisions, action items, and commitments 3. **InsightAnalyzerAgent**: Captures learning moments, breakthroughs, and key realizations 4. **StateTrackerAgent**: Monitors project status, dependencies,
-  - tly: - **Recent conversations** (< 7 days): Keep full detail - **Medium age** (7-30 days): Extract key insights and decisions - **Old conversations** (> 30 days): Compress to essential context only - 
+  - tly: - **Recent conversations** (< 7 days): Keep full detail - **Medium age** (7-30 days): Extract key insights and decisions - **Old conversations** (> 30 days): Compress to essential context only -
 - 📋 **Decisions:**
   - Perfect! The checkpoint orchestrator approach is much more efficient. We'll use zero-cost logic agents that run in parallel: ConversationParserAgent e (LOW)
 - 📈 **Progress:** 3/7 tasks (43%)
@@ -1375,4 +1467,4 @@ NEXT:
 **Why:** Continued project development and improvements
 **Outcome:** Files updated and changes ready for commit
 **Files:** .ai/conversation-log.md, .ai/next-steps.md, .aicf/conversations.aicf, .aicf/conversations.aicf.backup, CHANGELOG.md
-**Git:** Branch: main, 
+**Git:** Branch: main,
