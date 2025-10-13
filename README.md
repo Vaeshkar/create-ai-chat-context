@@ -1,7 +1,7 @@
 # create-ai-chat-context
 
 [![npm version](https://img.shields.io/npm/v/create-ai-chat-context)](https://www.npmjs.com/package/create-ai-chat-context)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![License: AGPL v3](https://img.shields.io/badge/License-AGPL_v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.7+-blue.svg)](https://www.typescriptlang.org/)
 [![Tests](https://img.shields.io/badge/tests-120%20passing-brightgreen.svg)](https://github.com/Vaeshkar/create-ai-chat-context)
 
@@ -238,7 +238,9 @@ Contributions are welcome! Please read [CONTRIBUTING.md](./CONTRIBUTING.md) for 
 
 ## 📝 License
 
-MIT © [Dennis H. A. van Leeuwen](https://github.com/Vaeshkar)
+GNU AGPL v3 © [Dennis H. A. van Leeuwen](https://github.com/Vaeshkar)
+
+This project is licensed under the GNU Affero General Public License v3.0 or later. See the [LICENSE](./LICENSE) file for details.
 
 ---
 
