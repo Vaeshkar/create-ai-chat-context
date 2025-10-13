@@ -23,7 +23,8 @@ const __dirname = dirname(__filename);
  */
 async function getVersion(): Promise<string> {
   try {
-    const packageJsonPath = join(__dirname, '..', 'package.json');
+    // In built version: dist/esm/cli.js -> ../../package.json
+    const packageJsonPath = join(__dirname, '..', '..', 'package.json');
     const content = await readFile(packageJsonPath, 'utf-8');
     const pkg = JSON.parse(content) as { version: string };
     return pkg.version;
