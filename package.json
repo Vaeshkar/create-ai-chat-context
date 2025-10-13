@@ -1,6 +1,6 @@
 {
   "name": "create-ai-chat-context",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Modern AI memory system - TypeScript/ESM with .ai/ and .aicf/ knowledge base",
   "type": "module",
   "main": "./dist/cjs/index.cjs",
