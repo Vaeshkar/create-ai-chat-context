@@ -1,9 +1,8 @@
 # create-ai-chat-context
 
 [![npm version](https://img.shields.io/npm/v/create-ai-chat-context)](https://www.npmjs.com/package/create-ai-chat-context)
+[![npm downloads](https://img.shields.io/npm/dm/create-ai-chat-context)](https://www.npmjs.com/package/create-ai-chat-context)
 [![License: AGPL v3](https://img.shields.io/badge/License-AGPL_v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.7+-blue.svg)](https://www.typescriptlang.org/)
-[![Tests](https://img.shields.io/badge/tests-120%20passing-brightgreen.svg)](https://github.com/Vaeshkar/create-ai-chat-context)
 
 > **AI memory system for your projects** - Never lose context between AI chat sessions again.
 
